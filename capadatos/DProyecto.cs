@@ -16,7 +16,7 @@ namespace capadatos
         private DateTime _fecha;//TODO pendiente por confirmar la compatibilidad con la hora dentro de este campo y ver la base de datos.proyecto.fecha
         private string _textobuscar;
         private string _descripcion;
-
+        //
         public int Id { get => _id; set => _id = value; }
         public string Codigo_proyecto { get => _codigo_proyecto; set => _codigo_proyecto = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }

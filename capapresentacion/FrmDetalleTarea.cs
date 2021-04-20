@@ -81,14 +81,7 @@ namespace capapresentacion
         private void habilitar(bool valor)
         {
             this.txtIdTarea.ReadOnly = true;
-            this.txtTituloTarea.ReadOnly = true;
-            //this.txtnombre.ReadOnly = !valor;
-            //this.txtapellidos.ReadOnly = !valor;
-            //this.txtdocumento.ReadOnly = !valor;
-            //this.txtdireccion.ReadOnly = !valor;
-            //this.cbosexo.Enabled = valor;
-            //this.cbotipodocumento.Enabled = valor;
-            //this.dtfechanacimiento.Enabled = valor;
+            this.txtTituloTarea.ReadOnly = true;     
 
         }
 
