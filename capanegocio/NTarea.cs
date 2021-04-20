@@ -29,6 +29,8 @@ namespace capanegocio
             objeto.Textobuscar = textobuscar;
             return objeto.buscartareaProyecto(objeto);
         }
+
+
         public static DataTable buscartareaObservaciones(String textobuscar)
         {
             DTarea objeto = new DTarea();
@@ -70,7 +72,7 @@ namespace capanegocio
             return objeto.eliminarTarea(objeto);
         }
 
-        public static string editarTarea(int id, string titulo,string proyecto,string descripcion, string observaciones, string estado,DateTime fecha)
+        public static string editarTarea(int id, string titulo, string proyecto, string descripcion, string observaciones, string estado, DateTime fecha)
         {
             DTarea objeto = new DTarea();
             objeto.Id = id;
@@ -85,10 +87,17 @@ namespace capanegocio
         }
 
 
-        public static String mostrarProyectoCombobox()
+        public static string[] mostrarProyectoCombobox()
         {
             DTarea objeto = new DTarea();
+
             return objeto.mostrarProyectoCombobox(objeto);
+        }
+
+        public static string[] mostrarEstadoCombobox()
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarEstadoCombobox(objeto);
         }
     }
 }

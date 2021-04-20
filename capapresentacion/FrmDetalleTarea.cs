@@ -18,63 +18,27 @@ namespace capapresentacion
         public FrmDetalleTarea()
         {
             InitializeComponent();
-            mostrarProyectoCombobox();
+            
         }
 
         public void mostrarProyectoCombobox()
         {
+            comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
+            comboboxProyecto.SelectedIndex = 0;
 
+        }
 
-            NProyecto.mostrarProyectoCombobox();
-
-
-
-
-           // NTarea tarea = new NTarea();
-            //Console.WriteLine(tarea.mostrarProyectoCombobox());
-
-
-
-            /*
-            try
-            {
-                
-                SqlConnection SqlCon = new SqlConnection();
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand query = new SqlCommand("select * from TareasPersonales tt where 5=tt.id_empleado and estado=1 order by tt.idTarea desc", con);
-                SqlDataReader reader;
-                reader = query.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("descripcion", typeof(string));
-                dt.Load(reader);
-                comboboxProyecto.DisplayMember = "descripcion";
-                comboboxProyecto.DataSource = dt;
-
-                
-            }
-            catch (Exception)
-            {
-
-            }
-
-
-            */
-
-
-
-
-
-
-            //comboboxProyecto.Items.Add(tarea.mostrarProyectoCombobox());
-            //comboboxProyecto.Items.AddRange(new object[] { "dsad","dsa"});
-            //comboboxProyecto.SelectedIndex = 0;
+        public void mostrarEstadoCombobox()
+        {
+            comboboxEstado.Items.AddRange(NTarea.mostrarEstadoCombobox().ToArray());
+            comboboxEstado.SelectedIndex = 0;
 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            mostrarProyectoCombobox();
+            mostrarEstadoCombobox();
         }
         public void visualizaDatos(string id,string proyecto,string tarea,string descripcion,string observaciones,string fecha_creacion,string estado)
         {

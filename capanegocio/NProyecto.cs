@@ -54,11 +54,7 @@ namespace capanegocio
             return objeto.buscarproyecto(objeto);
         }
 
-        public static DataTable mostrarProyectoCombobox()
-        {
-            DProyecto objeto = new DProyecto();
-            return objeto.mostrarProyectoCombobox(objeto);
-        }
+
 
     }
 }
