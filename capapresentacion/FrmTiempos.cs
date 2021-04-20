@@ -22,5 +22,10 @@ namespace capapresentacion
         {
             frmparent.lanzarNuevoProyecto(new FrmDetalleTiempos());
         }
+
+        private void dataListTiempos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -35,9 +35,6 @@ namespace capapresentacion
         {
             this.txtIdProyecto.Text = string.Empty;
             this.txtTituloProyecto.Text = string.Empty;
-            //this.txtProyecto.Text = string.Empty;
-            //this.dtFechaProyecto.Text = string.Empty;
-            //this.dtFechaProyecto.ResetText();//TODO pendiente por probar el Reset
             this.txtObservacionesProyecto.Text = string.Empty;
             this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
@@ -47,7 +44,6 @@ namespace capapresentacion
         {
             this.txtIdProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
-           // this.txtProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
             this.txtDescripcionProyecto.ReadOnly = !valor;
             this.dtFechaProyecto.Enabled = valor;
@@ -163,8 +159,7 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
-                MessageBox.Show("Hola cristhian lo he subido desde GitHub");
-
+                
                 
             }
             else
