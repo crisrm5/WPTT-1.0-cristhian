@@ -40,6 +40,18 @@ namespace capapresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (!this.txtIdTarea.Text.Equals(""))
+            {
+                this.eseditar = true;
+                this.botones();
+                MessageBox.Show("Hola cristhian lo he subido desde GitHub");
+
+
+            }
+            else
+            {
+                this.mensajeerror("selleccione el registro a modificar");
+            }
 
             mostrarProyectoCombobox();
             mostrarEstadoCombobox();
@@ -140,5 +152,17 @@ namespace capapresentacion
             limpiar();
             this.Hide();
         }
+
+        private void mensajeok(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void mensajeerror(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
     }
 }
