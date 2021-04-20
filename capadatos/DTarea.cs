@@ -27,9 +27,7 @@ namespace capadatos
         public string Aplicacion { get => _aplicacion; set => _aplicacion = value; }
         public string Prioridad { get => _prioridad; set => _prioridad = value; }
         public string Estado { get => _estado; set => _estado = value; }
-
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
-
         public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
         public string Proyecto { get => _proyecto; set => _proyecto = value; }
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
