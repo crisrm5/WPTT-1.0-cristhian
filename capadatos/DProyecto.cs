@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 namespace capadatos
 {
     public class DProyecto
-    {
+    {//comentario de prueba
         private int _id;
         private string _codigo_proyecto;
         private string _titulo;
