@@ -162,6 +162,8 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
+                MessageBox.Show("Hola cristo lo he subido desde GitHub");
+
                 
             }
             else
