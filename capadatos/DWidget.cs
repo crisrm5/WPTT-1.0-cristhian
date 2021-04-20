@@ -1,47 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace capadatos
 {
-    public class DTiempo
+    class DWidget
     {
-        private int _id;
-        private string _id_tarea;
-        private DateTime _fecha_inicio;
-        private DateTime _fecha_fin;
-        private string _observaciones;
-        private string _textobuscar;
-
-        public int Id { get => _id; set => _id = value; }
         
-        public string Id_tarea { get => _id_tarea; set => _id_tarea = value; }
-        //Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
-        public DateTime Fecha_inicio { get => _fecha_inicio; set => _fecha_inicio = value; }
-        public DateTime Fecha_fin { get => _fecha_fin; set => _fecha_fin = value; }
-        public string Observaciones { get => _observaciones; set => _observaciones = value; }
-        public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
+        private string _tarea;
 
-        public DTiempo()
+        public string Tarea { get => _tarea; set => _tarea = value; }
+
+        public DWidget()
         {
 
         }
-        public DTiempo(int id, string id_tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
-        {
-            _id = id;
-            _id_tarea = id_tarea;
-            _fecha_inicio = fecha_inicio;
-            _fecha_fin = fecha_fin;
-            _observaciones = observaciones;
+        public DWidget(string tarea)
+        {           
+            _tarea = tarea;
         }
 
-        public DataTable mostrartiempos(DTiempo objeto)
+        public DataTable mostrartareasWidget(DWidget objeto)
         {
-            DataTable dtresultado = new DataTable("tiempos");
+            DataTable dtresultado = new DataTable("widget");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -49,7 +34,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_tiempos";
+                SqlCmd.CommandText = "spmostrar_tareas_widget";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
@@ -161,15 +146,7 @@ namespace capadatos
                 ParFechaFin.Value = tiempo.Fecha_fin;
                 SqlCmd.Parameters.Add(ParFechaFin);
 
-                //observaciones
-                SqlParameter ParObservaciones = new SqlParameter();
-                ParObservaciones.ParameterName = "@observaciones";
-                ParObservaciones.SqlDbType = SqlDbType.NText;
-                ParObservaciones.Size = 1024;
-                ParObservaciones.Value = tiempo.Observaciones;
-                SqlCmd.Parameters.Add(ParObservaciones);
-
-
+                
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el tiempo";
 
                 return rpta;
@@ -299,7 +276,5 @@ namespace capadatos
             }
             return rpta;
         }
-
-
     }
 }
