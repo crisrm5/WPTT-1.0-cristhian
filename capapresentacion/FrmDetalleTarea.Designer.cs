@@ -49,7 +49,7 @@ namespace capapresentacion
             this.txtDescripcionTarea = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboboxProyecto = new System.Windows.Forms.ComboBox();
-            this.txtEstado = new System.Windows.Forms.ComboBox();
+            this.comboboxEstado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtHoras
@@ -233,15 +233,16 @@ namespace capapresentacion
             this.comboboxProyecto.Name = "comboboxProyecto";
             this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
             this.comboboxProyecto.TabIndex = 51;
+            this.comboboxProyecto.SelectedIndexChanged += new System.EventHandler(this.comboboxProyecto_SelectedIndexChanged);
             // 
-            // txtEstado
+            // comboboxEstado
             // 
-            this.txtEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtEstado.FormattingEnabled = true;
-            this.txtEstado.Location = new System.Drawing.Point(500, 80);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(204, 21);
-            this.txtEstado.TabIndex = 52;
+            this.comboboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxEstado.FormattingEnabled = true;
+            this.comboboxEstado.Location = new System.Drawing.Point(500, 80);
+            this.comboboxEstado.Name = "comboboxEstado";
+            this.comboboxEstado.Size = new System.Drawing.Size(204, 21);
+            this.comboboxEstado.TabIndex = 52;
             // 
             // FrmDetalleTarea
             // 
@@ -249,7 +250,7 @@ namespace capapresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(819, 498);
-            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.comboboxEstado);
             this.Controls.Add(this.comboboxProyecto);
             this.Controls.Add(this.txtDescripcionTarea);
             this.Controls.Add(this.label2);
@@ -298,6 +299,6 @@ namespace capapresentacion
         private System.Windows.Forms.RichTextBox txtDescripcionTarea;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboboxProyecto;
-        private System.Windows.Forms.ComboBox txtEstado;
+        private System.Windows.Forms.ComboBox comboboxEstado;
     }
 }

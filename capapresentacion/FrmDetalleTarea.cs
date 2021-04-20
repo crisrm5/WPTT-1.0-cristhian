@@ -22,11 +22,44 @@ namespace capapresentacion
 
         private void mostrarProyectoCombobox()
         {
-            NTarea tarea = new NTarea();
-            Console.WriteLine(tarea.mostrarProyectoCombobox());
+           // NTarea tarea = new NTarea();
+            //Console.WriteLine(tarea.mostrarProyectoCombobox());
+
+
+
+            /*
+            try
+            {
+                Conexion cn = new Conexion();
+
+                SqlCommand query = new SqlCommand("select * from TareasPersonales tt where 5=tt.id_empleado and estado=1 order by tt.idTarea desc", con);
+                SqlDataReader reader;
+                reader = query.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("descripcion", typeof(string));
+                dt.Load(reader);
+                listaTareasPersonales.DisplayMember = "descripcion";
+                listaTareasPersonales.DataSource = dt;
+
+                
+            }
+            catch (Exception)
+            {
+
+            }*/
+
+
+
+
+
+
+
+
+
             //comboboxProyecto.Items.Add(tarea.mostrarProyectoCombobox());
-            comboboxProyecto.Items.AddRange(new object[] { "dsad","dsa"});
-            
+            //comboboxProyecto.Items.AddRange(new object[] { "dsad","dsa"});
+            //comboboxProyecto.SelectedIndex = 0;
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -38,11 +71,13 @@ namespace capapresentacion
 
             txtIdTarea.Text = id;
             txtTituloTarea.Text = tarea;
-            comboboxProyecto.Text = proyecto;
+            comboboxProyecto.Items.Add(proyecto);
+            comboboxProyecto.SelectedIndex = 0;
             txtDescripcionTarea.Text = descripcion;
             txtObservacionesTarea.Text = observaciones;
             dtFechaTarea.Text = fecha_creacion;
-            txtEstado.Text = estado;
+            comboboxEstado.Items.Add(estado);
+            comboboxEstado.SelectedIndex = 0;
             //txtAplicacion.Text = aplicacion;
             //txtObservacionesTarea.Text=o
             //txtHoras.Text=
@@ -72,6 +107,11 @@ namespace capapresentacion
         }
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboboxProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
