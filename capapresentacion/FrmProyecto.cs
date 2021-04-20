@@ -8,13 +8,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using capanegocio;
+
 
 namespace capapresentacion
 {
     public partial class FrmProyecto : Form
     {
+        public FrmPrincipal frmparent;
+        //private object id;
         public FrmProyecto()
         {
             InitializeComponent();
@@ -33,11 +35,20 @@ namespace capapresentacion
             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void cerrarX(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.ExitThread();
+        }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            //mostrarproyectos();
-            this.FormClosed += new FormClosedEventHandler(cerrarX);
+           this.FormClosed += new FormClosedEventHandler(cerrarX);
+        }
+
+        private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         public void mostrarproyectos()
@@ -51,24 +62,18 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             this.dataListProyectos.Columns[0].Visible = false;
-            //this.dataListProyectos.Columns[1].Visible = false;
+            this.dataListProyectos.Columns[1].Visible = false;
             this.btnEliminarProyecto.Enabled = false;
             this.cbEliminar.Checked = false;
 
         }
 
-        public FrmPrincipal frmparent;
-        //private object id;
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoProyecto(new FrmDetalleProyecto());
+            frmparent.lanzarNuevoElemento(new FrmDetalleProyecto());
         }
 
-        private void cerrarX(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.ExitThread();
-        }
+       
 
         private void quitarBordes()
         {
@@ -89,13 +94,7 @@ namespace capapresentacion
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);        
         /*fin del drag*/
 
         private void cbEliminar_CheckedChanged_1(object sender, EventArgs e)
@@ -112,8 +111,6 @@ namespace capapresentacion
             }
         }
 
-
-
         private void dataListProyectos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataListProyectos.Columns["Eliminar"].Index)
@@ -123,7 +120,6 @@ namespace capapresentacion
             }
         }
 
-        /*Procedure*/
         private void dataListProyectos_CellDoubleClick(object sender, EventArgs e)
         {
             try
@@ -138,7 +134,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
                     );
                 
-                frmparent.lanzarNuevoProyecto(detalleProyecto);
+                frmparent.lanzarNuevoElemento(detalleProyecto);
 
             }
             catch (Exception)
@@ -147,6 +143,7 @@ namespace capapresentacion
             }
         }
 
+        /*PROCEDURES*/
         private void btnEliminarProyecto_Click_1(object sender, EventArgs e)
         {
             try
@@ -196,18 +193,18 @@ namespace capapresentacion
             }
         }
 
-        private void txtBuscarProyecto_TextChanged(object sender, EventArgs e)
-        {
-            this.buscarProyecto(this.txtBuscarProyecto.Text);
-        }
-        /*PROCEDURES*/
         private void buscarProyecto(string texto)
         {
             this.dataListProyectos.DataSource = NProyecto.buscarproyecto(texto);
             this.ocultarcolumnas();
         }
 
-
+        private void txtBuscarProyecto_TextChanged(object sender, EventArgs e)
+        {
+            this.buscarProyecto(this.txtBuscarProyecto.Text);
+        }        
+       
+        /*PROCEDURES*/
 
     }
 }

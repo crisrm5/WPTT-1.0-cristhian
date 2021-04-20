@@ -34,16 +34,10 @@ namespace capapresentacion
             this.dataListTiempos = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtEstado = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtFechaTiempos = new System.Windows.Forms.DateTimePicker();
-            this.txtPrioridad = new System.Windows.Forms.TextBox();
-            this.txtProyecto = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTituloProyecto = new System.Windows.Forms.Label();
             this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminarTiempo = new System.Windows.Forms.Button();
+            this.txtBuscarTiempo = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTiempos)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +45,7 @@ namespace capapresentacion
             // label_añadir
             // 
             this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(624, 139);
+            this.label_añadir.Location = new System.Drawing.Point(172, 144);
             this.label_añadir.Name = "label_añadir";
             this.label_añadir.Size = new System.Drawing.Size(37, 13);
             this.label_añadir.TabIndex = 27;
@@ -83,6 +77,7 @@ namespace capapresentacion
             this.dataListTiempos.Size = new System.Drawing.Size(663, 282);
             this.dataListTiempos.TabIndex = 4;
             this.dataListTiempos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListTiempos_CellContentClick);
+            this.dataListTiempos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListTiempos_CellDoubleClick);
             // 
             // Eliminar
             // 
@@ -100,85 +95,13 @@ namespace capapresentacion
             this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(676, 131);
+            this.btnNuevo.Location = new System.Drawing.Point(224, 136);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(26, 28);
             this.btnNuevo.TabIndex = 25;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(471, 69);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(204, 20);
-            this.txtEstado.TabIndex = 54;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(378, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 25);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Estado";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dtFechaTiempos
-            // 
-            this.dtFechaTiempos.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaTiempos.Location = new System.Drawing.Point(471, 24);
-            this.dtFechaTiempos.Name = "dtFechaTiempos";
-            this.dtFechaTiempos.Size = new System.Drawing.Size(204, 20);
-            this.dtFechaTiempos.TabIndex = 52;
-            // 
-            // txtPrioridad
-            // 
-            this.txtPrioridad.Location = new System.Drawing.Point(155, 73);
-            this.txtPrioridad.Name = "txtPrioridad";
-            this.txtPrioridad.Size = new System.Drawing.Size(162, 20);
-            this.txtPrioridad.TabIndex = 51;
-            // 
-            // txtProyecto
-            // 
-            this.txtProyecto.Location = new System.Drawing.Point(155, 24);
-            this.txtProyecto.Name = "txtProyecto";
-            this.txtProyecto.Size = new System.Drawing.Size(162, 20);
-            this.txtProyecto.TabIndex = 50;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 25);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Prioridad";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(385, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Fecha";
-            // 
-            // lblTituloProyecto
-            // 
-            this.lblTituloProyecto.AutoSize = true;
-            this.lblTituloProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(46, 24);
-            this.lblTituloProyecto.Name = "lblTituloProyecto";
-            this.lblTituloProyecto.Size = new System.Drawing.Size(97, 25);
-            this.lblTituloProyecto.TabIndex = 47;
-            this.lblTituloProyecto.Text = "Proyecto";
-            this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbEliminar
             // 
@@ -188,6 +111,7 @@ namespace capapresentacion
             this.cbEliminar.TabIndex = 55;
             this.cbEliminar.Text = "Eliminar";
             this.cbEliminar.UseVisualStyleBackColor = true;
+            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
             // 
             // btnEliminarTiempo
             // 
@@ -197,12 +121,31 @@ namespace capapresentacion
             this.btnEliminarTiempo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarTiempo.FlatAppearance.BorderSize = 0;
             this.btnEliminarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTiempo.Location = new System.Drawing.Point(112, 131);
+            this.btnEliminarTiempo.Location = new System.Drawing.Point(104, 135);
             this.btnEliminarTiempo.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarTiempo.Name = "btnEliminarTiempo";
             this.btnEliminarTiempo.Size = new System.Drawing.Size(32, 28);
             this.btnEliminarTiempo.TabIndex = 56;
             this.btnEliminarTiempo.UseVisualStyleBackColor = false;
+            this.btnEliminarTiempo.Click += new System.EventHandler(this.btnEliminarTiempo_Click);
+            // 
+            // txtBuscarTiempo
+            // 
+            this.txtBuscarTiempo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarTiempo.Location = new System.Drawing.Point(38, 52);
+            this.txtBuscarTiempo.Name = "txtBuscarTiempo";
+            this.txtBuscarTiempo.Size = new System.Drawing.Size(663, 20);
+            this.txtBuscarTiempo.TabIndex = 57;
+            this.txtBuscarTiempo.TextChanged += new System.EventHandler(this.txtBuscarTiempo_TextChanged);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(592, 139);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(104, 13);
+            this.lblTotal.TabIndex = 58;
+            this.lblTotal.Text = "Número de registros:";
             // 
             // FrmTiempos
             // 
@@ -210,21 +153,16 @@ namespace capapresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(796, 517);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.txtBuscarTiempo);
             this.Controls.Add(this.btnEliminarTiempo);
             this.Controls.Add(this.cbEliminar);
-            this.Controls.Add(this.txtEstado);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtFechaTiempos);
-            this.Controls.Add(this.txtPrioridad);
-            this.Controls.Add(this.txtProyecto);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTituloProyecto);
             this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
             this.Controls.Add(this.btnNuevo);
             this.Name = "FrmTiempos";
             this.Text = "FrmTiempos";
+            this.Load += new System.EventHandler(this.FrmTiempos_Load);
             this.panelRecuadro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataListTiempos)).EndInit();
             this.ResumeLayout(false);
@@ -239,15 +177,9 @@ namespace capapresentacion
         private System.Windows.Forms.DataGridView dataListTiempos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox txtEstado;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtFechaTiempos;
-        private System.Windows.Forms.TextBox txtPrioridad;
-        private System.Windows.Forms.TextBox txtProyecto;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTituloProyecto;
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.Button btnEliminarTiempo;
+        private System.Windows.Forms.TextBox txtBuscarTiempo;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

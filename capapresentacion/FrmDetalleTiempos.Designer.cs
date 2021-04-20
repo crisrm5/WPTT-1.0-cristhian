@@ -35,13 +35,11 @@ namespace capapresentacion
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.txtPrioridad = new System.Windows.Forms.TextBox();
-            this.txtProyecto = new System.Windows.Forms.TextBox();
+            this.txtTarea = new System.Windows.Forms.TextBox();
             this.txtObservaciones = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDescripciones = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblTituloProyecto = new System.Windows.Forms.Label();
             this.txtMinutos = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -102,19 +100,12 @@ namespace capapresentacion
             this.dtFechaInicio.Size = new System.Drawing.Size(204, 20);
             this.dtFechaInicio.TabIndex = 38;
             // 
-            // txtPrioridad
+            // txtTarea
             // 
-            this.txtPrioridad.Location = new System.Drawing.Point(143, 91);
-            this.txtPrioridad.Name = "txtPrioridad";
-            this.txtPrioridad.Size = new System.Drawing.Size(162, 20);
-            this.txtPrioridad.TabIndex = 37;
-            // 
-            // txtProyecto
-            // 
-            this.txtProyecto.Location = new System.Drawing.Point(143, 54);
-            this.txtProyecto.Name = "txtProyecto";
-            this.txtProyecto.Size = new System.Drawing.Size(162, 20);
-            this.txtProyecto.TabIndex = 36;
+            this.txtTarea.Location = new System.Drawing.Point(144, 54);
+            this.txtTarea.Name = "txtTarea";
+            this.txtTarea.Size = new System.Drawing.Size(162, 20);
+            this.txtTarea.TabIndex = 37;
             // 
             // txtObservaciones
             // 
@@ -129,7 +120,7 @@ namespace capapresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 86);
+            this.label2.Location = new System.Drawing.Point(27, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 25);
             this.label2.TabIndex = 33;
@@ -155,17 +146,6 @@ namespace capapresentacion
             this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 31;
             this.label1.Text = "Fecha Inicio:";
-            // 
-            // lblTituloProyecto
-            // 
-            this.lblTituloProyecto.AutoSize = true;
-            this.lblTituloProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(26, 48);
-            this.lblTituloProyecto.Name = "lblTituloProyecto";
-            this.lblTituloProyecto.Size = new System.Drawing.Size(97, 25);
-            this.lblTituloProyecto.TabIndex = 30;
-            this.lblTituloProyecto.Text = "Proyecto";
-            this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMinutos
             // 
@@ -243,13 +223,11 @@ namespace capapresentacion
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaInicio);
-            this.Controls.Add(this.txtPrioridad);
-            this.Controls.Add(this.txtProyecto);
+            this.Controls.Add(this.txtTarea);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblDescripciones);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTituloProyecto);
             this.Name = "FrmDetalleTiempos";
             this.Text = "FrmDetalleTiempos";
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).EndInit();
@@ -264,13 +242,11 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
-        private System.Windows.Forms.TextBox txtPrioridad;
-        private System.Windows.Forms.TextBox txtProyecto;
+        private System.Windows.Forms.TextBox txtTarea;
         private System.Windows.Forms.RichTextBox txtObservaciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDescripciones;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTituloProyecto;
         private System.Windows.Forms.TextBox txtMinutos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtFechaFin;

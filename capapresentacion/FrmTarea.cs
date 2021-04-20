@@ -46,7 +46,7 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoProyecto(detalleTareas);
+            frmparent.lanzarNuevoElemento(detalleTareas);
             detalleTareas.mostrarProyectoCombobox();
             detalleTareas.mostrarEstadoCombobox();
 
@@ -124,7 +124,7 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
                 );
 
-            frmparent.lanzarNuevoProyecto(detalleTareas);
+            frmparent.lanzarNuevoElemento(detalleTareas);
 
             try
             {
@@ -172,7 +172,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
                     );
 
-                frmparent.lanzarNuevoProyecto(detalleTarea);
+                frmparent.lanzarNuevoElemento(detalleTarea);
 
             }
             catch (Exception)

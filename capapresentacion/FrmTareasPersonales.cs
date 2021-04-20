@@ -20,7 +20,7 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoProyecto(new FrmDetallesTareasPersonales());
+            frmparent.lanzarNuevoElemento(new FrmDetallesTareasPersonales());
         }
     }
 }

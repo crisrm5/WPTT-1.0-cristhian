@@ -124,9 +124,9 @@ namespace capapresentacion
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(588, 136);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(109, 13);
+            this.lblTotal.Size = new System.Drawing.Size(111, 13);
             this.lblTotal.TabIndex = 17;
-            this.lblTotal.Text = "numero de proyectos:";
+            this.lblTotal.Text = "Número de proyectos:";
             // 
             // cbEliminar
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capanegocio;
 
 namespace capapresentacion
 {
@@ -32,19 +33,21 @@ namespace capapresentacion
         private void limpiar()
         {
             this.txtIdTiempo.Text = string.Empty;
-            this.txtProyecto.Text = string.Empty;
+            this.txtTarea.Text = string.Empty;
             this.txtObservaciones.Text = string.Empty;
             this.dtFechaInicio.Text = string.Empty;
             this.dtFechaFin.Text = string.Empty;
+            this.txtMinutos.Text = string.Empty;
         }
 
         private void habilitar(bool valor)
         {
             this.txtIdTiempo.ReadOnly = true;
-            this.txtProyecto.ReadOnly = !valor;
+            this.txtTarea.ReadOnly = !valor;
             this.txtObservaciones.ReadOnly = !valor;
             this.dtFechaInicio.Enabled = valor;
             this.dtFechaFin.Enabled = valor;
+            this.txtMinutos.Enabled = valor;
         }
 
         private void botones()
@@ -93,28 +96,21 @@ namespace capapresentacion
             try
             {
                 string rpta = "";
-                if (this.txtProyecto.Text == string.Empty)
+                if (this.txtTarea.Text == string.Empty)
                 {
                     mensajeerror("Formulario incompleto");
-                    this.iconoerror.SetError(this.txtProyecto, "Ingresar Título");
+                    this.iconoerror.SetError(this.txtTarea, "Ingresar Tarea");
                 }
                 else
                 {
                     if (esnuevo)
                     {
-                        rpta = NTiempo.insertarproyecto(this.txtProyecto.Text.Trim().ToUpper(), this.txtObservaciones.Text.Trim(), Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value));
+                        rpta = NTiempo.insertartiempo(this.txtTarea.Text,Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value), this.txtObservaciones.Text);
                     }
                     else
                     {
-
-                        rpta = NTiempo.editarproyecto(Convert.ToInt32(this.txtIdTiempo.Text), this.txtProyecto.Text.Trim().ToUpper(), this.txtObservaciones.Text.Trim(), Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value));
-                        //rpta = NProyecto.editarproyecto(
-                        //    Convert.ToInt32(this.txtIdProyecto.Text),
-                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
-                        //    this.txtObservacionesProyecto.Text.Trim(),
-                        //    this.dtFechaProyecto.Value);
-
-                    }
+                        rpta = NTiempo.editartiempo(Convert.ToInt32(this.txtIdTiempo.Text), this.txtTarea.Text, Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value), this.txtObservaciones.Text);
+                     }
 
                     if (rpta.Equals("OK"))
                     {
@@ -153,12 +149,10 @@ namespace capapresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.txtIdProyecto.Text.Equals(""))
+            if (!this.txtIdTiempo.Text.Equals(""))
             {
                 this.eseditar = true;
                 this.botones();
-
-
             }
             else
             {
@@ -178,25 +172,16 @@ namespace capapresentacion
 
         }
 
-        public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones, string fecha_creacion)
+        public void visualizaDatos(string id, string id_tarea, string fecha_inicio, string fecha_fin, string observaciones)
         {
 
             this.txtIdTiempo.Text = id;
-            this.txtProyecto.Text = proyecto;
+            this.txtTarea.Text = id_tarea;            
+            this.dtFechaInicio.Text = fecha_inicio;
+            this.dtFechaFin.Text = fecha_fin;
             this.txtObservaciones.Text = observaciones;
-            this.dtFechaInicio.Text = fecha_creacion;//TODO
-            this.dtFechaFin.Text = fecha_creacion;
 
         }
-
-        //public void visualizaDatos()
-        //{
-        //    this.txtIdProyecto.Text = id;
-        //    this.txtProyecto.Text = codigo_proyecto;
-        //    this.txtTituloProyecto.Text = titulo;
-        //    this.txtObservacionesProyecto.Text = observaciones;
-        //    this.dtFechaProyecto.Text = "14/05/2020";
-        //}
 
         private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
         {

@@ -10,6 +10,18 @@ namespace capanegocio
 {
     public class NProyecto
     {
+        public static DataTable mostrarproyectos()
+        {
+            DProyecto objeto = new DProyecto();
+            return objeto.mostrarproyectos(objeto);
+        }
+
+        public static DataTable buscarproyecto(String textobuscar)
+        {
+            DProyecto objeto = new DProyecto();
+            objeto.Textobuscar = textobuscar;
+            return objeto.buscarproyecto(objeto);
+        }
         public static string insertarproyecto(string titulo, string observaciones,string descripcion, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
@@ -40,21 +52,5 @@ namespace capanegocio
 
             return objeto.eliminarproyecto(objeto);
         }
-
-        public static DataTable mostrarproyectos()
-        {
-            DProyecto objeto = new DProyecto();
-            return objeto.mostrarproyectos(objeto);
-        }
-
-        public static DataTable buscarproyecto(String textobuscar)
-        {
-            DProyecto objeto = new DProyecto();
-            objeto.Textobuscar = textobuscar;
-            return objeto.buscarproyecto(objeto);
-        }
-
-
-
     }
 }

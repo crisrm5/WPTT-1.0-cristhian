@@ -194,8 +194,6 @@ namespace capapresentacion
             WindowState = FormWindowState.Normal;
         }
 
-
-
         private void convertirWidget()
         {
             MaximizeBox = false;
@@ -227,8 +225,6 @@ namespace capapresentacion
                 this.WindowState = FormWindowState.Minimized;
             }
         }
-
-
 
         private void moverVentanaAbajoDerecha()
         {
