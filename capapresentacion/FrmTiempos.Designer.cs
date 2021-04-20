@@ -42,6 +42,8 @@ namespace capapresentacion
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTituloProyecto = new System.Windows.Forms.Label();
+            this.cbEliminar = new System.Windows.Forms.CheckBox();
+            this.btnEliminarTiempo = new System.Windows.Forms.Button();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTiempos)).BeginInit();
             this.SuspendLayout();
@@ -178,12 +180,38 @@ namespace capapresentacion
             this.lblTituloProyecto.Text = "Proyecto";
             this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // cbEliminar
+            // 
+            this.cbEliminar.Location = new System.Drawing.Point(38, 139);
+            this.cbEliminar.Name = "cbEliminar";
+            this.cbEliminar.Size = new System.Drawing.Size(63, 24);
+            this.cbEliminar.TabIndex = 55;
+            this.cbEliminar.Text = "Eliminar";
+            this.cbEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarTiempo
+            // 
+            this.btnEliminarTiempo.BackColor = System.Drawing.Color.White;
+            this.btnEliminarTiempo.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
+            this.btnEliminarTiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEliminarTiempo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarTiempo.FlatAppearance.BorderSize = 0;
+            this.btnEliminarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarTiempo.Location = new System.Drawing.Point(112, 131);
+            this.btnEliminarTiempo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarTiempo.Name = "btnEliminarTiempo";
+            this.btnEliminarTiempo.Size = new System.Drawing.Size(32, 28);
+            this.btnEliminarTiempo.TabIndex = 56;
+            this.btnEliminarTiempo.UseVisualStyleBackColor = false;
+            // 
             // FrmTiempos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(796, 517);
+            this.Controls.Add(this.btnEliminarTiempo);
+            this.Controls.Add(this.cbEliminar);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtFechaTiempos);
@@ -219,5 +247,7 @@ namespace capapresentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTituloProyecto;
+        private System.Windows.Forms.CheckBox cbEliminar;
+        private System.Windows.Forms.Button btnEliminarTiempo;
     }
 }

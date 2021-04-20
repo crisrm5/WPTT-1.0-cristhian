@@ -38,6 +38,7 @@ namespace capapresentacion
             this.txtObservacionesProyecto.Text = string.Empty;
             this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
+
         }
 
         private void habilitar(bool valor)
@@ -182,9 +183,8 @@ namespace capapresentacion
 
         public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones,string fecha_creacion)
         {
-            //txtIdProyecto.Text = idproyecto;
+            
             this.txtIdProyecto.Text = id;
-           // this.txtProyecto.Text = codigo_proyecto;
             this.txtTituloProyecto.Text = proyecto;
             this.txtObservacionesProyecto.Text = observaciones;
             this.txtDescripcionProyecto.Text = descripcion;

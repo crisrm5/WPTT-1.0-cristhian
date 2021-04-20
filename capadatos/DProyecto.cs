@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 namespace capadatos
 {
     public class DProyecto
-    {//comentario de prueba
+    {
         private int _id;
         private string _codigo_proyecto;
         private string _titulo;
@@ -16,7 +16,7 @@ namespace capadatos
         private DateTime _fecha;//TODO pendiente por confirmar la compatibilidad con la hora dentro de este campo y ver la base de datos.proyecto.fecha
         private string _textobuscar;
         private string _descripcion;
-        //Hola que ase, nada que aser
+       
 
         public int Id { get => _id; set => _id = value; }
         public string Codigo_proyecto { get => _codigo_proyecto; set => _codigo_proyecto = value; }
@@ -42,6 +42,37 @@ namespace capadatos
             Descripcion = descripcion;
         }
 
+        //Método mostrar proyectos
+        public DataTable mostrarproyectos(DProyecto objeto)
+        {
+            DataTable dtresultado = new DataTable("proyecto");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_proyectos";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return dtresultado;
+        }
 
         //Método insertar proyecto
         public string insertarproyecto(DProyecto proyecto)
@@ -231,38 +262,7 @@ namespace capadatos
             }
             return rpta;
         }
-
-        //Método mostrar proyectos
-        public DataTable mostrarproyectos(DProyecto objeto)
-        {
-            DataTable dtresultado = new DataTable("proyecto");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_proyectos";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
+              
 
         //Método buscar proyecto por codigo
         public DataTable buscarproyecto(DProyecto proyecto)

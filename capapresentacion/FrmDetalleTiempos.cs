@@ -12,9 +12,200 @@ namespace capapresentacion
 {
     public partial class FrmDetalleTiempos : Form
     {
+        bool esnuevo = false;
+        bool eseditar = false;
+        public string idtiempo = "";
         public FrmDetalleTiempos()
         {
             InitializeComponent();
+        }
+        private void mensajeok(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void mensajeerror(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        //sss
+        private void limpiar()
+        {
+            this.txtIdTiempo.Text = string.Empty;
+            this.txtProyecto.Text = string.Empty;
+            this.txtObservaciones.Text = string.Empty;
+            this.dtFechaInicio.Text = string.Empty;
+            this.dtFechaFin.Text = string.Empty;
+        }
+
+        private void habilitar(bool valor)
+        {
+            this.txtIdTiempo.ReadOnly = true;
+            this.txtProyecto.ReadOnly = !valor;
+            this.txtObservaciones.ReadOnly = !valor;
+            this.dtFechaInicio.Enabled = valor;
+            this.dtFechaFin.Enabled = valor;
+        }
+
+        private void botones()
+        {
+            if (esnuevo || this.eseditar)
+            {
+                habilitar(true);
+                btnNuevo.Enabled = false;
+                btnGuardar.Enabled = true;
+                btnEditar.Enabled = false;
+                btnCancelar.Enabled = true;
+            }
+            else
+            {
+                habilitar(false);
+                btnNuevo.Enabled = true;
+                btnGuardar.Enabled = false;
+                btnEditar.Enabled = true;
+                btnCancelar.Enabled = false;
+            }
+        }
+
+
+        private void FrmDetalleTiempos_Load(object sender, EventArgs e)
+        {
+            this.botones();
+            this.FormClosed += new FormClosedEventHandler(cerrarX);
+        }
+
+        private void cerrarX(object sender, EventArgs e)
+        {
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+            this.Hide();
+            frmPrincipal.Show();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            esnuevo = true;
+            botones();
+            limpiar();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rpta = "";
+                if (this.txtProyecto.Text == string.Empty)
+                {
+                    mensajeerror("Formulario incompleto");
+                    this.iconoerror.SetError(this.txtProyecto, "Ingresar Título");
+                }
+                else
+                {
+                    if (esnuevo)
+                    {
+                        rpta = NTiempo.insertarproyecto(this.txtProyecto.Text.Trim().ToUpper(), this.txtObservaciones.Text.Trim(), Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value));
+                    }
+                    else
+                    {
+
+                        rpta = NTiempo.editarproyecto(Convert.ToInt32(this.txtIdTiempo.Text), this.txtProyecto.Text.Trim().ToUpper(), this.txtObservaciones.Text.Trim(), Convert.ToDateTime(this.dtFechaInicio.Value), Convert.ToDateTime(this.dtFechaFin.Value));
+                        //rpta = NProyecto.editarproyecto(
+                        //    Convert.ToInt32(this.txtIdProyecto.Text),
+                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
+                        //    this.txtObservacionesProyecto.Text.Trim(),
+                        //    this.dtFechaProyecto.Value);
+
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (esnuevo)
+                        {
+                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+                        }
+                        else
+                        {
+                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+                        }
+
+                    }
+                    else
+                    {
+                        this.mensajeerror(rpta);
+                    }
+
+                    this.esnuevo = false;
+                    this.eseditar = false;
+                    botones();
+                    this.limpiar();
+                    //FrmPrincipal.mostrarproyectos();
+
+                    //TODO es necesario mostrar los proyectos desde detalleProyecto?
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, ex.StackTrace);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (!this.txtIdProyecto.Text.Equals(""))
+            {
+                this.eseditar = true;
+                this.botones();
+
+
+            }
+            else
+            {
+                this.mensajeerror("selleccione el registro a modificar");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            botones();
+            limpiar();
+            this.Hide();
+        }
+
+        private void txtIdProyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones, string fecha_creacion)
+        {
+
+            this.txtIdTiempo.Text = id;
+            this.txtProyecto.Text = proyecto;
+            this.txtObservaciones.Text = observaciones;
+            this.dtFechaInicio.Text = fecha_creacion;//TODO
+            this.dtFechaFin.Text = fecha_creacion;
+
+        }
+
+        //public void visualizaDatos()
+        //{
+        //    this.txtIdProyecto.Text = id;
+        //    this.txtProyecto.Text = codigo_proyecto;
+        //    this.txtTituloProyecto.Text = titulo;
+        //    this.txtObservacionesProyecto.Text = observaciones;
+        //    this.dtFechaProyecto.Text = "14/05/2020";
+        //}
+
+        private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaProyecto_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
