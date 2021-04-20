@@ -142,9 +142,9 @@ namespace capapresentacion
             // txtBuscarProyecto
             // 
             this.txtBuscarProyecto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarProyecto.Location = new System.Drawing.Point(139, 44);
+            this.txtBuscarProyecto.Location = new System.Drawing.Point(51, 44);
             this.txtBuscarProyecto.Name = "txtBuscarProyecto";
-            this.txtBuscarProyecto.Size = new System.Drawing.Size(452, 20);
+            this.txtBuscarProyecto.Size = new System.Drawing.Size(663, 20);
             this.txtBuscarProyecto.TabIndex = 14;
             this.txtBuscarProyecto.TextChanged += new System.EventHandler(this.txtBuscarProyecto_TextChanged);
             // 

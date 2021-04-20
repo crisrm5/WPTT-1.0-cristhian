@@ -14,7 +14,10 @@ namespace capapresentacion
 {
     public partial class FrmDetalleTarea : Form
     {
-
+            
+        bool esnuevo = false;
+        bool eseditar = false;
+       
         public FrmDetalleTarea()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace capapresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
             mostrarProyectoCombobox();
             mostrarEstadoCombobox();
         }
@@ -82,6 +86,52 @@ namespace capapresentacion
         private void comboboxProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            esnuevo = true;
+            botones();
+            limpiar();
+        }
+
+        private void botones()
+        {
+            if (esnuevo || this.eseditar)
+            {
+                habilitar(true);
+                btnNuevo.Enabled = false;
+                btnGuardar.Enabled = true;
+                btnEditar.Enabled = false;
+                btnCancelar.Enabled = true;
+            }
+            else
+            {
+                habilitar(false);
+                btnNuevo.Enabled = true;
+                btnGuardar.Enabled = false;
+                btnEditar.Enabled = true;
+                btnCancelar.Enabled = false;
+            }
+        }
+
+        private void limpiar()
+        {
+            this.txtIdTarea.Text = string.Empty;
+            this.txtTituloTarea.Text = string.Empty;
+            this.comboboxProyecto.Items.Clear();
+            this.comboboxEstado.Items.Clear();
+            dtFechaTarea.Text = string.Empty;
+            this.txtHoras.Text = string.Empty;
+            this.txtDescripcionTarea.Text = string.Empty;
+            this.txtObservacionesTarea.Text = string.Empty;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            botones();
+            limpiar();
+            this.Hide();
         }
     }
 }
