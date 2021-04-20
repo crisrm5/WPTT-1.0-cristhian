@@ -60,6 +60,8 @@ namespace capanegocio
             return objeto.mostrartarea(objeto);
         }
 
+
+
         public static string eliminarTarea(int id)
         {
             DTarea objeto = new DTarea();
@@ -83,7 +85,7 @@ namespace capanegocio
         }
 
 
-        public String mostrarProyectoCombobox()
+        public static String mostrarProyectoCombobox()
         {
             DTarea objeto = new DTarea();
             return objeto.mostrarProyectoCombobox(objeto);

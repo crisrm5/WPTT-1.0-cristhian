@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,15 @@ namespace capapresentacion
             mostrarProyectoCombobox();
         }
 
-        private void mostrarProyectoCombobox()
+        public void mostrarProyectoCombobox()
         {
+
+
+            NProyecto.mostrarProyectoCombobox();
+
+
+
+
            // NTarea tarea = new NTarea();
             //Console.WriteLine(tarea.mostrarProyectoCombobox());
 
@@ -30,26 +38,28 @@ namespace capapresentacion
             /*
             try
             {
-                Conexion cn = new Conexion();
-
+                
+                SqlConnection SqlCon = new SqlConnection();
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
                 SqlCommand query = new SqlCommand("select * from TareasPersonales tt where 5=tt.id_empleado and estado=1 order by tt.idTarea desc", con);
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("descripcion", typeof(string));
                 dt.Load(reader);
-                listaTareasPersonales.DisplayMember = "descripcion";
-                listaTareasPersonales.DataSource = dt;
+                comboboxProyecto.DisplayMember = "descripcion";
+                comboboxProyecto.DataSource = dt;
 
                 
             }
             catch (Exception)
             {
 
-            }*/
+            }
 
 
-
+            */
 
 
 
@@ -85,6 +95,7 @@ namespace capapresentacion
 
 
         }
+
 
 
         private void habilitar(bool valor)
