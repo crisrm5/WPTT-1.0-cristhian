@@ -119,14 +119,43 @@ namespace capadatos
             return rpta;
         }
 
-        public string[] mostrarProyectoCombobox(DTarea objeto)
+        public string[] mostrarEstadoCombobox(DTarea objeto)
         {
-
-            Console.WriteLine("ultimo mostrar");
-            List<string[]> MyStringArrays = new List<string[]>();
             string[] array = new string[] { };
 
+            DataTable dtresultado = new DataTable("tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_estados";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return array;
+        }
+
+        public string[] mostrarProyectoCombobox(DTarea objeto)
+        {
+            string[] array = new string[] { };
 
             DataTable dtresultado = new DataTable("tareas");
             SqlConnection SqlCon = new SqlConnection();
@@ -142,14 +171,11 @@ namespace capadatos
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
 
-                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-                //var stringArr = dtresultado.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
-
-
-            }catch (Exception)
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
             {
                 dtresultado = null;
-                Console.WriteLine("explota");
             }
             finally
             {

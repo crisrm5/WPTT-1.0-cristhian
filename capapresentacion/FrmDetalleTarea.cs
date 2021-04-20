@@ -18,24 +18,27 @@ namespace capapresentacion
         public FrmDetalleTarea()
         {
             InitializeComponent();
-            //mostrarProyectoCombobox();
+            
         }
 
         public void mostrarProyectoCombobox()
         {
-           // String[] protectos = NTarea.mostrarProyectoCombobox().ToString().ToArray;
-            //comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.SelectedIndex = 0;
 
+        }
 
-
+        public void mostrarEstadoCombobox()
+        {
+            comboboxEstado.Items.AddRange(NTarea.mostrarEstadoCombobox().ToArray());
+            comboboxEstado.SelectedIndex = 0;
 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            mostrarProyectoCombobox();
+            mostrarEstadoCombobox();
         }
         public void visualizaDatos(string id,string proyecto,string tarea,string descripcion,string observaciones,string fecha_creacion,string estado)
         {
