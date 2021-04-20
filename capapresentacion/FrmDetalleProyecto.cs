@@ -49,6 +49,7 @@ namespace capapresentacion
             this.txtTituloProyecto.ReadOnly = !valor;
            // this.txtProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
+            this.txtDescripcionProyecto.ReadOnly = !valor;
             this.dtFechaProyecto.Enabled = valor;
             
         }
