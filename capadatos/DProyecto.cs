@@ -303,36 +303,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        public DataTable mostrarProyectoCombobox(DProyecto proyecto)
-        {
-            DataTable dtresultado = new DataTable("proyecto");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_proyectos";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
 
     }
 }

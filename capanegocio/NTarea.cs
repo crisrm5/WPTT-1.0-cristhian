@@ -85,10 +85,12 @@ namespace capanegocio
         }
 
 
-        public static String mostrarProyectoCombobox()
+
+
+        public static List<Object> mostrarProyectoCombobox()
         {
             DTarea objeto = new DTarea();
-            return objeto.mostrarProyectoCombobox(objeto);
+            return objeto.mostrarProyectoCombobox(objeto).AsEnumerable().ToList<Object>();
         }
     }
 }

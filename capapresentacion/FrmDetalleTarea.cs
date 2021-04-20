@@ -18,57 +18,17 @@ namespace capapresentacion
         public FrmDetalleTarea()
         {
             InitializeComponent();
-            mostrarProyectoCombobox();
+            //mostrarProyectoCombobox();
         }
 
         public void mostrarProyectoCombobox()
         {
-
-
-            NProyecto.mostrarProyectoCombobox();
-
-
-
-
-           // NTarea tarea = new NTarea();
-            //Console.WriteLine(tarea.mostrarProyectoCombobox());
+           // String[] protectos = NTarea.mostrarProyectoCombobox().ToString().ToArray;
+            comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
+            comboboxProyecto.SelectedIndex = 0;
 
 
 
-            /*
-            try
-            {
-                
-                SqlConnection SqlCon = new SqlConnection();
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand query = new SqlCommand("select * from TareasPersonales tt where 5=tt.id_empleado and estado=1 order by tt.idTarea desc", con);
-                SqlDataReader reader;
-                reader = query.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("descripcion", typeof(string));
-                dt.Load(reader);
-                comboboxProyecto.DisplayMember = "descripcion";
-                comboboxProyecto.DataSource = dt;
-
-                
-            }
-            catch (Exception)
-            {
-
-            }
-
-
-            */
-
-
-
-
-
-
-            //comboboxProyecto.Items.Add(tarea.mostrarProyectoCombobox());
-            //comboboxProyecto.Items.AddRange(new object[] { "dsad","dsa"});
-            //comboboxProyecto.SelectedIndex = 0;
 
         }
 

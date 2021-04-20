@@ -46,10 +46,10 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoProyecto(new FrmDetalleTarea());
+            frmparent.lanzarNuevoProyecto(detalleTareas);
+            
             detalleTareas.mostrarProyectoCombobox();
-            //detalleTareas.mostrarComboboxProyecto();
-            //NTarea.mostrarProyectoCombobox();
+
 
         }
 

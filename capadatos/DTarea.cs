@@ -119,7 +119,7 @@ namespace capadatos
             return rpta;
         }
 
-        public string mostrarProyectoCombobox(DTarea objeto)
+        public DataTable mostrarProyectoCombobox(DTarea objeto)
         {
             DataTable dtresultado = new DataTable("tareas");
             SqlConnection SqlCon = new SqlConnection();
@@ -147,7 +147,7 @@ namespace capadatos
 
             }
 
-            return dtresultado.ToString();
+            return dtresultado;
         }
 
         public string editarTarea(DTarea tarea)
