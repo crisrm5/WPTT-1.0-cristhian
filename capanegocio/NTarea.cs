@@ -87,10 +87,12 @@ namespace capanegocio
 
 
 
-        public static List<Object> mostrarProyectoCombobox()
+        public static string[] mostrarProyectoCombobox()
         {
-            DTarea objeto = new DTarea();
-            return objeto.mostrarProyectoCombobox(objeto).AsEnumerable().ToList<Object>();
+            Console.WriteLine("mostrar proyecto camobobox 1º");
+               DTarea objeto = new DTarea();
+           // return objeto.mostrarProyectoCombobox(objeto).AsEnumerable().ToList<Object>();
+            return objeto.mostrarProyectoCombobox(objeto);
         }
     }
 }

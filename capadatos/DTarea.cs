@@ -119,8 +119,15 @@ namespace capadatos
             return rpta;
         }
 
-        public DataTable mostrarProyectoCombobox(DTarea objeto)
+        public string[] mostrarProyectoCombobox(DTarea objeto)
         {
+
+            Console.WriteLine("ultimo mostrar");
+            List<string[]> MyStringArrays = new List<string[]>();
+            string[] array = new string[] { };
+
+
+
             DataTable dtresultado = new DataTable("tareas");
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -135,11 +142,14 @@ namespace capadatos
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
 
+                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+                //var stringArr = dtresultado.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
 
-            }
-            catch (Exception)
+
+            }catch (Exception)
             {
                 dtresultado = null;
+                Console.WriteLine("explota");
             }
             finally
             {
@@ -147,7 +157,7 @@ namespace capadatos
 
             }
 
-            return dtresultado;
+            return array;
         }
 
         public string editarTarea(DTarea tarea)

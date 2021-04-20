@@ -24,6 +24,7 @@ namespace capapresentacion
         public void mostrarProyectoCombobox()
         {
            // String[] protectos = NTarea.mostrarProyectoCombobox().ToString().ToArray;
+            //comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.SelectedIndex = 0;
 
