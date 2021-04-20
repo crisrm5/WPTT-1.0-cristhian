@@ -23,7 +23,10 @@ namespace capapresentacion
         private void mostrarProyectoCombobox()
         {
             NTarea tarea = new NTarea();
-           // tarea.mostrarProyectoCombobox();
+            Console.WriteLine(tarea.mostrarProyectoCombobox());
+            //comboboxProyecto.Items.Add(tarea.mostrarProyectoCombobox());
+            comboboxProyecto.Items.AddRange(new object[] { "dsad","dsa"});
+            
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace capapresentacion
 
             txtIdTarea.Text = id;
             txtTituloTarea.Text = tarea;
-            txtProyecto.Text = proyecto;
+            comboboxProyecto.Text = proyecto;
             txtDescripcionTarea.Text = descripcion;
             txtObservacionesTarea.Text = observaciones;
             dtFechaTarea.Text = fecha_creacion;

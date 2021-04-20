@@ -48,7 +48,7 @@ namespace capapresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescripcionTarea = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtProyecto = new System.Windows.Forms.ComboBox();
+            this.comboboxProyecto = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -225,14 +225,14 @@ namespace capapresentacion
             this.label2.TabIndex = 49;
             this.label2.Text = "Descripción:";
             // 
-            // txtProyecto
+            // comboboxProyecto
             // 
-            this.txtProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtProyecto.FormattingEnabled = true;
-            this.txtProyecto.Location = new System.Drawing.Point(180, 113);
-            this.txtProyecto.Name = "txtProyecto";
-            this.txtProyecto.Size = new System.Drawing.Size(162, 21);
-            this.txtProyecto.TabIndex = 51;
+            this.comboboxProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxProyecto.FormattingEnabled = true;
+            this.comboboxProyecto.Location = new System.Drawing.Point(180, 113);
+            this.comboboxProyecto.Name = "comboboxProyecto";
+            this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
+            this.comboboxProyecto.TabIndex = 51;
             // 
             // txtEstado
             // 
@@ -250,7 +250,7 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(819, 498);
             this.Controls.Add(this.txtEstado);
-            this.Controls.Add(this.txtProyecto);
+            this.Controls.Add(this.comboboxProyecto);
             this.Controls.Add(this.txtDescripcionTarea);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
@@ -297,7 +297,7 @@ namespace capapresentacion
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox txtDescripcionTarea;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox txtProyecto;
+        private System.Windows.Forms.ComboBox comboboxProyecto;
         private System.Windows.Forms.ComboBox txtEstado;
     }
 }

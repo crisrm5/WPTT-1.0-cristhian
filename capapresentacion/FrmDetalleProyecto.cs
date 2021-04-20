@@ -23,13 +23,14 @@ namespace capapresentacion
         private void mensajeok(string mensaje)
         {
             MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            
         }
 
         private void mensajeerror(string mensaje)
         {
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        //sss
         private void limpiar()
         {
             this.txtIdProyecto.Text = string.Empty;
@@ -38,6 +39,8 @@ namespace capapresentacion
             //this.dtFechaProyecto.Text = string.Empty;
             //this.dtFechaProyecto.ResetText();//TODO pendiente por probar el Reset
             this.txtObservacionesProyecto.Text = string.Empty;
+            this.txtDescripcionProyecto.Text = string.Empty;
+            this.dtFechaProyecto.Text = string.Empty;
         }
 
         private void habilitar(bool valor)
@@ -46,7 +49,8 @@ namespace capapresentacion
             this.txtTituloProyecto.ReadOnly = !valor;
            // this.txtProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
-            this.dtFechaProyecto.Enabled = valor;          
+            this.dtFechaProyecto.Enabled = valor;
+            
         }
         
         private void botones()
@@ -104,12 +108,12 @@ namespace capapresentacion
                 {
                     if (esnuevo)
                     {
-                        rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtObservacionesProyecto.Text.Trim(),this.txtObservacionesProyecto.Text.Trim(),Convert.ToDateTime(this.dtFechaProyecto.Value));
+                        rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(),this.txtObservacionesProyecto.Text.Trim(),Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
                     else
                     {
 
-                        rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text),this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
+                        rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text),this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
                         //rpta = NProyecto.editarproyecto(
                         //    Convert.ToInt32(this.txtIdProyecto.Text),
                         //    this.txtTituloProyecto.Text.Trim().ToUpper(),
@@ -133,6 +137,7 @@ namespace capapresentacion
                     else {
                         this.mensajeerror(rpta);
                     }
+   
                     this.esnuevo = false;
                     this.eseditar = false;
                     botones();

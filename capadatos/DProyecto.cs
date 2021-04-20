@@ -30,7 +30,7 @@ namespace capadatos
 
         }
 
-        public DProyecto(int id, string codigo_proyecto, string titulo, string observaciones, DateTime fecha, string textobuscar)
+        public DProyecto(int id, string codigo_proyecto, string titulo, string descripcion,string observaciones, DateTime fecha, string textobuscar)
         {
             Id = id;
             Codigo_proyecto = codigo_proyecto;
@@ -38,6 +38,7 @@ namespace capadatos
             Observaciones = observaciones;
             Fecha = fecha;
             Textobuscar = textobuscar;
+            Descripcion = descripcion;
         }
 
 
@@ -156,6 +157,14 @@ namespace capadatos
                 //ParObservaciones.Size = 1024;
                 ParObservaciones.Value = proyecto.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
+                //ParFecha.Size = 1024;
+                ParDescripcion.Value = proyecto.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
 
 
                 //fecha

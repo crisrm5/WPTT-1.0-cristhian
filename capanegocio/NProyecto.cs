@@ -21,12 +21,13 @@ namespace capanegocio
             return objeto.insertarproyecto(objeto);
         }
 
-        public static string editarproyecto(int id, string titulo, string observaciones, DateTime fecha)
+        public static string editarproyecto(int id, string titulo,string descripcion ,string observaciones, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
             objeto.Id = id;
             objeto.Titulo = titulo;
             objeto.Observaciones = observaciones;
+            objeto.Descripcion = descripcion;
             objeto.Fecha = fecha;
 
             return objeto.editarproyecto(objeto);

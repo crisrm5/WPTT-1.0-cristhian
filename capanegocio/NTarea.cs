@@ -83,7 +83,7 @@ namespace capanegocio
         }
 
 
-        public static String mostrarProyectoCombobox()
+        public String mostrarProyectoCombobox()
         {
             DTarea objeto = new DTarea();
             return objeto.mostrarProyectoCombobox(objeto);
