@@ -42,7 +42,7 @@ namespace capanegocio
             return objeto.buscartareaFechaCreacion(objeto);
         }
         public static DataTable buscartareaEstados(String textobuscar)
-        {
+        { 
             DTarea objeto = new DTarea();
             objeto.Textobuscar = textobuscar;
             return objeto.buscartareaEstados(objeto);
