@@ -139,7 +139,7 @@ namespace capapresentacion
                     this.esnuevo = false;
                     this.eseditar = false;
                     botones();
-                    this.limpiar();
+                    //this.limpiar();
                     //FrmPrincipal.mostrarproyectos();
                    
                     //TODO es necesario mostrar los proyectos desde detalleProyecto?
