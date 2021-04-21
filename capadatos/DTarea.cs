@@ -117,6 +117,91 @@ namespace capadatos
             return rpta;
         }
 
+        public string insertartarea(DTarea tarea)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spinsertar_tarea";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Definición de atributos
+
+                //id
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Direction = ParameterDirection.Output;
+                SqlCmd.Parameters.Add(ParId);
+
+
+                //titulo
+                SqlParameter ParTitulo = new SqlParameter();
+                ParTitulo.ParameterName = "@titulo";
+                ParTitulo.SqlDbType = SqlDbType.NVarChar;
+                ParTitulo.Size = 1024;
+                ParTitulo.Value = tarea.Titulo;
+                SqlCmd.Parameters.Add(ParTitulo);
+
+
+                //observaciones
+                SqlParameter ParObservaciones = new SqlParameter();
+                ParObservaciones.ParameterName = "@observaciones";
+                ParObservaciones.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParObservaciones.Value = tarea.Observaciones;
+                SqlCmd.Parameters.Add(ParObservaciones);
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParDescripcion.Value = tarea.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+                //fecha
+                SqlParameter ParFecha = new SqlParameter();
+                ParFecha.ParameterName = "@fecha_creacion";
+                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                //ParFecha.Size = 1024;
+                ParFecha.Value = tarea.Fecha;
+                SqlCmd.Parameters.Add(ParFecha);
+
+                //estado
+                SqlParameter ParEstado = new SqlParameter();
+                ParFecha.ParameterName = "@estado";
+                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                //ParFecha.Size = 1024;
+                ParFecha.Value = tarea.Fecha;
+                SqlCmd.Parameters.Add(ParEstado);
+
+
+
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Proyecto";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            return rpta;
+        }
+
         public string[] mostrarEstadoCombobox(DTarea objeto)
         {
             string[] array = new string[] { };
@@ -461,6 +546,5 @@ namespace capadatos
 
             return dtresultado;
         }
-
     }
 }

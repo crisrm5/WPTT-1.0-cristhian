@@ -19,6 +19,8 @@ namespace capapresentacion
         public FrmDetalleProyecto()
         {
             InitializeComponent();
+            
+            botonesVisible(false);
         }
         private void mensajeok(string mensaje)
         {
@@ -51,6 +53,12 @@ namespace capapresentacion
             
         }
         
+        private void botonesVisible(bool estado)
+        {
+            btnGuardar.Visible = estado;
+            btnCancelar.Visible = estado;
+        }
+
         private void botones()
         {
             if(esnuevo || this.eseditar)
@@ -88,10 +96,15 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esnuevo = true;
+            botonesVisible(true);
+            setModo("CREACIÓN");
             botones();
             limpiar();
         }
-
+        public void setModo(String modo)
+        {
+            lEdicion.Text = "[MODO " + modo + "]";
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -136,8 +149,7 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
    
-                    this.esnuevo = false;
-                    this.eseditar = false;
+                    botonesVisible(false);
                     botones();
                     this.limpiar();
                     //FrmPrincipal.mostrarproyectos();
@@ -160,8 +172,10 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
-                
-                
+                setModo("EDICIÓN");
+                //this.txtDescripcionProyecto.Visible = true;
+                botonesVisible(true);
+
             }
             else
             {
@@ -171,9 +185,13 @@ namespace capapresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            esnuevo = false;
+            this.eseditar = false;
             botones();
-            limpiar();
-            this.Hide();
+            botonesVisible(false);
+            //limpiar();
+            //this.Hide();
+            setModo("LECTURA");
         }
 
         private void txtIdProyecto_TextChanged(object sender, EventArgs e)
@@ -187,7 +205,12 @@ namespace capapresentacion
             this.txtIdProyecto.Text = id;
             this.txtTituloProyecto.Text = proyecto;
             this.txtObservacionesProyecto.Text = observaciones;
+
             this.txtDescripcionProyecto.Text = descripcion;
+            //this.txtDescripcionProyecto.Visible = true;
+
+
+
             this.dtFechaProyecto.Text = fecha_creacion;
             
         }
@@ -209,6 +232,47 @@ namespace capapresentacion
         private void dtFechaProyecto_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescripcionProyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTituloProyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblObservaciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTituloProyecto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_idproyecto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            string[] array = new string[] { };
+            array=NProyecto.siguienteInforme();
         }
     }
 }

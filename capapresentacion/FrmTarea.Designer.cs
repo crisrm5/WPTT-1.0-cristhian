@@ -37,7 +37,6 @@ namespace capapresentacion
             this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnBuscarTareas = new System.Windows.Forms.Button();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).BeginInit();
@@ -46,7 +45,7 @@ namespace capapresentacion
             // label_añadir
             // 
             this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(170, 138);
+            this.label_añadir.Location = new System.Drawing.Point(150, 146);
             this.label_añadir.Name = "label_añadir";
             this.label_añadir.Size = new System.Drawing.Size(37, 13);
             this.label_añadir.TabIndex = 21;
@@ -57,7 +56,7 @@ namespace capapresentacion
             // 
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
             this.panelRecuadro.Controls.Add(this.dataListTareas);
-            this.panelRecuadro.Location = new System.Drawing.Point(38, 180);
+            this.panelRecuadro.Location = new System.Drawing.Point(39, 180);
             this.panelRecuadro.Name = "panelRecuadro";
             this.panelRecuadro.Size = new System.Drawing.Size(663, 282);
             this.panelRecuadro.TabIndex = 20;
@@ -93,16 +92,16 @@ namespace capapresentacion
             // txtBuscarTarea
             // 
             this.txtBuscarTarea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarTarea.Location = new System.Drawing.Point(222, 59);
+            this.txtBuscarTarea.Location = new System.Drawing.Point(215, 54);
             this.txtBuscarTarea.Name = "txtBuscarTarea";
-            this.txtBuscarTarea.Size = new System.Drawing.Size(452, 20);
+            this.txtBuscarTarea.Size = new System.Drawing.Size(487, 20);
             this.txtBuscarTarea.TabIndex = 14;
             this.txtBuscarTarea.TextChanged += new System.EventHandler(this.txtBuscarProyecto_TextChanged);
             // 
             // cbEliminar
             // 
             this.cbEliminar.AutoSize = true;
-            this.cbEliminar.Location = new System.Drawing.Point(46, 137);
+            this.cbEliminar.Location = new System.Drawing.Point(39, 146);
             this.cbEliminar.Name = "cbEliminar";
             this.cbEliminar.Size = new System.Drawing.Size(62, 17);
             this.cbEliminar.TabIndex = 22;
@@ -118,7 +117,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(114, 130);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(104, 138);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -133,26 +132,13 @@ namespace capapresentacion
             this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(222, 130);
+            this.btnNuevo.Location = new System.Drawing.Point(190, 138);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(26, 28);
             this.btnNuevo.TabIndex = 19;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnBuscarTareas
-            // 
-            this.btnBuscarTareas.BackColor = System.Drawing.Color.White;
-            this.btnBuscarTareas.BackgroundImage = global::capapresentacion.Properties.Resources.Lupa;
-            this.btnBuscarTareas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarTareas.Location = new System.Drawing.Point(677, 59);
-            this.btnBuscarTareas.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBuscarTareas.Name = "btnBuscarTareas";
-            this.btnBuscarTareas.Size = new System.Drawing.Size(25, 21);
-            this.btnBuscarTareas.TabIndex = 15;
-            this.btnBuscarTareas.UseVisualStyleBackColor = false;
             // 
             // cboBuscarTareas
             // 
@@ -166,7 +152,7 @@ namespace capapresentacion
             "Observación",
             "Proyecto",
             "Tecnico"});
-            this.cboBuscarTareas.Location = new System.Drawing.Point(46, 58);
+            this.cboBuscarTareas.Location = new System.Drawing.Point(39, 54);
             this.cboBuscarTareas.Name = "cboBuscarTareas";
             this.cboBuscarTareas.Size = new System.Drawing.Size(153, 21);
             this.cboBuscarTareas.TabIndex = 13;
@@ -184,7 +170,6 @@ namespace capapresentacion
             this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnBuscarTareas);
             this.Controls.Add(this.txtBuscarTarea);
             this.Controls.Add(this.cboBuscarTareas);
             this.Name = "FrmTarea";
@@ -204,7 +189,6 @@ namespace capapresentacion
         private System.Windows.Forms.DataGridView dataListTareas;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnBuscarTareas;
         private System.Windows.Forms.TextBox txtBuscarTarea;
         private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.CheckBox cbEliminar;

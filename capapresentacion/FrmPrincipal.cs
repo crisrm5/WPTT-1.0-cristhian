@@ -18,6 +18,9 @@ namespace capapresentacion
     {
         private IconButton botonActual;
         private Panel panelIzquierdo;
+        private string nombreusuario;
+
+        public string Nombreusuario { get => nombreusuario; set => nombreusuario = value; }
 
         public FrmPrincipal()
         {
@@ -27,7 +30,7 @@ namespace capapresentacion
             panelMenu.Controls.Add(panelIzquierdo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Text = string.Empty;
-            
+            this.txtnombreusuario.Text = "nombreusuario";
             
             //AbrirFormulario(new FrmProyectosl());
 

@@ -21,7 +21,7 @@ namespace capapresentacion
         public FrmDetalleTarea()
         {
             InitializeComponent();
-            
+            botonesVisible(false);
         }
 
         public void mostrarProyectoCombobox()
@@ -44,8 +44,8 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
-                MessageBox.Show("Hola cristhian lo he subido desde GitHub");
-
+                lEdicion.Text = "[MODO EDICIÓN]";
+                botonesVisible(true);
 
             }
             else
@@ -55,6 +55,11 @@ namespace capapresentacion
 
             mostrarProyectoCombobox();
             mostrarEstadoCombobox();
+        }
+        private void botonesVisible(bool estado)
+        {
+            btnGuardar.Visible = estado;
+            btnCancelar.Visible = estado;
         }
         public void visualizaDatos(string id,string proyecto,string tarea,string descripcion,string observaciones,string fecha_creacion,string estado)
         {
@@ -103,10 +108,15 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esnuevo = true;
+            botonesVisible(true);
+            setModo("CREACION");
             botones();
             limpiar();
         }
-
+        public void setModo(String modo)
+        {
+            lEdicion.Text = "[MODO "+modo+"]";
+        }
         private void botones()
         {
             if (esnuevo || this.eseditar)
@@ -141,9 +151,13 @@ namespace capapresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            esnuevo = false;
+            this.eseditar = false;
             botones();
-            limpiar();
-            this.Hide();
+            botonesVisible(false);
+            //limpiar();
+            //this.Hide();
+            setModo("LECTURA");
         }
 
         private void mensajeok(string mensaje)
@@ -157,5 +171,66 @@ namespace capapresentacion
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string rpta = "";
+                if (this.txtTituloTarea.Text == string.Empty)
+                {
+                    mensajeerror("Formulario incompleto");
+                    //this.iconoerror.SetError(this.txtTituloProyecto, "Ingresar Título");
+                }
+                else
+                {
+                    if (esnuevo)
+                    {
+                       // rpta = NTarea.insertarTarea();
+                        //rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
+                    }
+                    else
+                    {
+
+                       // rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text), this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
+                        //rpta = NProyecto.editarproyecto(
+                        //    Convert.ToInt32(this.txtIdProyecto.Text),
+                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
+                        //    this.txtObservacionesProyecto.Text.Trim(),
+                        //    this.dtFechaProyecto.Value);
+
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (esnuevo)
+                        {
+                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+                        }
+                        else
+                        {
+                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+                        }
+
+                    }
+                    else
+                    {
+                        this.mensajeerror(rpta);
+                    }
+                    botonesVisible(false);
+                    botones();
+                    this.limpiar();
+                    //FrmPrincipal.mostrarproyectos();
+
+                    //TODO es necesario mostrar los proyectos desde detalleProyecto?
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, ex.StackTrace);
+            }
+        }
     }
 }
