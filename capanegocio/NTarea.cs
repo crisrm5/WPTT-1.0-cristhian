@@ -99,5 +99,16 @@ namespace capanegocio
             DTarea objeto = new DTarea();
             return objeto.mostrarEstadoCombobox(objeto);
         }
+
+        public static string insertartarea(string titulo, string observaciones, string descripcion, DateTime fecha)
+        {
+            DTarea objeto = new DTarea();
+            objeto.Titulo = titulo;
+            objeto.Observaciones = observaciones;
+            objeto.Fecha = fecha;
+            objeto.Descripcion = descripcion;
+
+            return objeto.insertartarea(objeto);
+        }
     }
 }

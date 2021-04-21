@@ -123,8 +123,9 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
                 );
-
+            detalleTareas.setModo("LECTURA");
             frmparent.lanzarNuevoElemento(detalleTareas);
+            
 
             try
             {

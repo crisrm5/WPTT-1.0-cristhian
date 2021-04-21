@@ -50,11 +50,12 @@ namespace capapresentacion
             this.label2 = new System.Windows.Forms.Label();
             this.comboboxProyecto = new System.Windows.Forms.ComboBox();
             this.comboboxEstado = new System.Windows.Forms.ComboBox();
+            this.lEdicion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtHoras
             // 
-            this.txtHoras.Location = new System.Drawing.Point(500, 116);
+            this.txtHoras.Location = new System.Drawing.Point(468, 120);
             this.txtHoras.Name = "txtHoras";
             this.txtHoras.Size = new System.Drawing.Size(204, 20);
             this.txtHoras.TabIndex = 45;
@@ -63,7 +64,7 @@ namespace capapresentacion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(407, 109);
+            this.label4.Location = new System.Drawing.Point(375, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 44;
@@ -74,7 +75,7 @@ namespace capapresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(407, 74);
+            this.label3.Location = new System.Drawing.Point(375, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 25);
             this.label3.TabIndex = 43;
@@ -84,7 +85,7 @@ namespace capapresentacion
             // btnCancelar
             // 
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(553, 455);
+            this.btnCancelar.Location = new System.Drawing.Point(597, 459);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 42;
@@ -95,7 +96,7 @@ namespace capapresentacion
             // btnEditar
             // 
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(419, 455);
+            this.btnEditar.Location = new System.Drawing.Point(148, 463);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 41;
@@ -106,17 +107,18 @@ namespace capapresentacion
             // btnGuardar
             // 
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(267, 455);
+            this.btnGuardar.Location = new System.Drawing.Point(468, 459);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 40;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(137, 455);
+            this.btnNuevo.Location = new System.Drawing.Point(25, 463);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 39;
@@ -127,31 +129,31 @@ namespace capapresentacion
             // dtFechaTarea
             // 
             this.dtFechaTarea.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaTarea.Location = new System.Drawing.Point(500, 37);
+            this.dtFechaTarea.Location = new System.Drawing.Point(468, 41);
             this.dtFechaTarea.Name = "dtFechaTarea";
             this.dtFechaTarea.Size = new System.Drawing.Size(204, 20);
             this.dtFechaTarea.TabIndex = 38;
             // 
             // txtTituloTarea
             // 
-            this.txtTituloTarea.Location = new System.Drawing.Point(180, 74);
+            this.txtTituloTarea.Location = new System.Drawing.Point(148, 78);
             this.txtTituloTarea.Name = "txtTituloTarea";
             this.txtTituloTarea.Size = new System.Drawing.Size(162, 20);
             this.txtTituloTarea.TabIndex = 36;
             // 
             // txtIdTarea
             // 
-            this.txtIdTarea.Location = new System.Drawing.Point(180, 37);
+            this.txtIdTarea.Location = new System.Drawing.Point(148, 41);
             this.txtIdTarea.Name = "txtIdTarea";
             this.txtIdTarea.Size = new System.Drawing.Size(162, 20);
             this.txtIdTarea.TabIndex = 35;
             // 
             // txtObservacionesTarea
             // 
-            this.txtObservacionesTarea.Location = new System.Drawing.Point(53, 332);
+            this.txtObservacionesTarea.Location = new System.Drawing.Point(26, 324);
             this.txtObservacionesTarea.Name = "txtObservacionesTarea";
             this.txtObservacionesTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesTarea.Size = new System.Drawing.Size(651, 108);
+            this.txtObservacionesTarea.Size = new System.Drawing.Size(651, 113);
             this.txtObservacionesTarea.TabIndex = 34;
             this.txtObservacionesTarea.Text = "";
             // 
@@ -159,7 +161,7 @@ namespace capapresentacion
             // 
             this.lblObservaciones.AutoSize = true;
             this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservaciones.Location = new System.Drawing.Point(52, 292);
+            this.lblObservaciones.Location = new System.Drawing.Point(20, 296);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(162, 25);
             this.lblObservaciones.TabIndex = 32;
@@ -169,7 +171,7 @@ namespace capapresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(414, 31);
+            this.label1.Location = new System.Drawing.Point(382, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 31;
@@ -179,7 +181,7 @@ namespace capapresentacion
             // 
             this.lblTituloProyecto.AutoSize = true;
             this.lblTituloProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(103, 74);
+            this.lblTituloProyecto.Location = new System.Drawing.Point(71, 78);
             this.lblTituloProyecto.Name = "lblTituloProyecto";
             this.lblTituloProyecto.Size = new System.Drawing.Size(65, 25);
             this.lblTituloProyecto.TabIndex = 30;
@@ -190,7 +192,7 @@ namespace capapresentacion
             // 
             this.lbl_idproyecto.AutoSize = true;
             this.lbl_idproyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idproyecto.Location = new System.Drawing.Point(83, 37);
+            this.lbl_idproyecto.Location = new System.Drawing.Point(51, 41);
             this.lbl_idproyecto.Name = "lbl_idproyecto";
             this.lbl_idproyecto.Size = new System.Drawing.Size(85, 25);
             this.lbl_idproyecto.TabIndex = 29;
@@ -201,7 +203,7 @@ namespace capapresentacion
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(71, 109);
+            this.label5.Location = new System.Drawing.Point(39, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 25);
             this.label5.TabIndex = 47;
@@ -210,7 +212,7 @@ namespace capapresentacion
             // 
             // txtDescripcionTarea
             // 
-            this.txtDescripcionTarea.Location = new System.Drawing.Point(57, 199);
+            this.txtDescripcionTarea.Location = new System.Drawing.Point(25, 203);
             this.txtDescripcionTarea.Name = "txtDescripcionTarea";
             this.txtDescripcionTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtDescripcionTarea.Size = new System.Drawing.Size(651, 72);
@@ -221,7 +223,7 @@ namespace capapresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 157);
+            this.label2.Location = new System.Drawing.Point(20, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 49;
@@ -231,7 +233,7 @@ namespace capapresentacion
             // 
             this.comboboxProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxProyecto.FormattingEnabled = true;
-            this.comboboxProyecto.Location = new System.Drawing.Point(180, 113);
+            this.comboboxProyecto.Location = new System.Drawing.Point(148, 117);
             this.comboboxProyecto.Name = "comboboxProyecto";
             this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
             this.comboboxProyecto.TabIndex = 51;
@@ -241,17 +243,28 @@ namespace capapresentacion
             // 
             this.comboboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxEstado.FormattingEnabled = true;
-            this.comboboxEstado.Location = new System.Drawing.Point(500, 80);
+            this.comboboxEstado.Location = new System.Drawing.Point(468, 84);
             this.comboboxEstado.Name = "comboboxEstado";
             this.comboboxEstado.Size = new System.Drawing.Size(204, 21);
             this.comboboxEstado.TabIndex = 52;
+            // 
+            // lEdicion
+            // 
+            this.lEdicion.AutoSize = true;
+            this.lEdicion.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lEdicion.Location = new System.Drawing.Point(27, 11);
+            this.lEdicion.Name = "lEdicion";
+            this.lEdicion.Size = new System.Drawing.Size(101, 14);
+            this.lEdicion.TabIndex = 53;
+            this.lEdicion.Text = "[MODO LECTURA]";
             // 
             // FrmDetalleTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(819, 498);
+            this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
             this.Controls.Add(this.comboboxProyecto);
             this.Controls.Add(this.txtDescripcionTarea);
@@ -302,5 +315,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboboxProyecto;
         private System.Windows.Forms.ComboBox comboboxEstado;
+        private System.Windows.Forms.Label lEdicion;
     }
 }

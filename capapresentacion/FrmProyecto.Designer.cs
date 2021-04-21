@@ -45,7 +45,7 @@ namespace capapresentacion
             // label_añadir
             // 
             this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(182, 136);
+            this.label_añadir.Location = new System.Drawing.Point(150, 146);
             this.label_añadir.Name = "label_añadir";
             this.label_añadir.Size = new System.Drawing.Size(37, 13);
             this.label_añadir.TabIndex = 21;
@@ -55,7 +55,7 @@ namespace capapresentacion
             // 
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
             this.panelRecuadro.Controls.Add(this.dataListProyectos);
-            this.panelRecuadro.Location = new System.Drawing.Point(51, 169);
+            this.panelRecuadro.Location = new System.Drawing.Point(39, 180);
             this.panelRecuadro.Name = "panelRecuadro";
             this.panelRecuadro.Size = new System.Drawing.Size(663, 282);
             this.panelRecuadro.TabIndex = 20;
@@ -95,7 +95,7 @@ namespace capapresentacion
             this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(234, 128);
+            this.btnNuevo.Location = new System.Drawing.Point(190, 138);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(26, 28);
@@ -111,7 +111,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(119, 128);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(104, 138);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -122,7 +122,7 @@ namespace capapresentacion
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(588, 136);
+            this.lblTotal.Location = new System.Drawing.Point(567, 146);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(111, 13);
             this.lblTotal.TabIndex = 17;
@@ -131,7 +131,7 @@ namespace capapresentacion
             // cbEliminar
             // 
             this.cbEliminar.AutoSize = true;
-            this.cbEliminar.Location = new System.Drawing.Point(51, 135);
+            this.cbEliminar.Location = new System.Drawing.Point(39, 146);
             this.cbEliminar.Name = "cbEliminar";
             this.cbEliminar.Size = new System.Drawing.Size(62, 17);
             this.cbEliminar.TabIndex = 16;
@@ -142,7 +142,7 @@ namespace capapresentacion
             // txtBuscarProyecto
             // 
             this.txtBuscarProyecto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarProyecto.Location = new System.Drawing.Point(51, 44);
+            this.txtBuscarProyecto.Location = new System.Drawing.Point(39, 54);
             this.txtBuscarProyecto.Name = "txtBuscarProyecto";
             this.txtBuscarProyecto.Size = new System.Drawing.Size(663, 20);
             this.txtBuscarProyecto.TabIndex = 14;
@@ -153,7 +153,7 @@ namespace capapresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(838, 488);
+            this.ClientSize = new System.Drawing.Size(799, 488);
             this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
             this.Controls.Add(this.btnNuevo);

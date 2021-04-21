@@ -70,7 +70,9 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoElemento(new FrmDetalleProyecto());
+            FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
+            frmparent.lanzarNuevoElemento(detalleproyecto);
+            detalleproyecto.setModo("CREACIÓN");
         }
 
        
@@ -135,7 +137,7 @@ namespace capapresentacion
                     );
                 
                 frmparent.lanzarNuevoElemento(detalleProyecto);
-
+                detalleProyecto.setModo("LECTURA");
             }
             catch (Exception)
             {
