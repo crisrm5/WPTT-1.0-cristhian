@@ -55,11 +55,11 @@ namespace capanegocio
 
 
 
-        /* public static DataRow[] siguienteInforme(String textobuscar)
+         public static DProyectoDatos siguienteInforme(String textobuscar)
          {
              DProyecto objeto = new DProyecto();
              objeto.Textobuscar = textobuscar;
              return objeto.siguienteInforme(objeto);
-         }*/
+         }
     }
 }

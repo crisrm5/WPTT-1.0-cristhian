@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 
 namespace capapresentacion
@@ -57,6 +58,8 @@ namespace capapresentacion
         {
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
+            txtObservacionesProyecto.Enabled = estado;
+            txtDescripcionProyecto.Enabled = estado;
         }
 
         private void botones()
@@ -96,6 +99,8 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esnuevo = true;
+            txtObservacionesProyecto.Enabled = true;
+            txtDescripcionProyecto.Enabled = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
@@ -173,6 +178,8 @@ namespace capapresentacion
                 this.eseditar = true;
                 this.botones();
                 setModo("EDICIÓN");
+               // txtObservacionesProyecto.Enabled = true;
+                //txtDescripcionProyecto.Enabled = true;
                 //this.txtDescripcionProyecto.Visible = true;
                 botonesVisible(true);
 
@@ -215,14 +222,7 @@ namespace capapresentacion
             
         }
 
-        //public void visualizaDatos()
-        //{
-        //    this.txtIdProyecto.Text = id;
-        //    this.txtProyecto.Text = codigo_proyecto;
-        //    this.txtTituloProyecto.Text = titulo;
-        //    this.txtObservacionesProyecto.Text = observaciones;
-        //    this.dtFechaProyecto.Text = "14/05/2020";
-        //}
+
 
         private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
         {
@@ -271,6 +271,8 @@ namespace capapresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            
+            NProyecto.siguienteInforme(txtIdProyecto.Text);
            /* Console.WriteLine("estamos detrno xabales");
             int cont = 0;
             string[] array =NProyecto.siguienteInforme(txtIdProyecto.Text);
@@ -295,8 +297,7 @@ namespace capapresentacion
                 opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (opcion == DialogResult.OK)
                 {
-                    int aux = 0;
-                    int id;
+
                     string rpta = "";
 
                     rpta = NProyecto.eliminarproyecto(Convert.ToInt32(txtIdProyecto.Text));

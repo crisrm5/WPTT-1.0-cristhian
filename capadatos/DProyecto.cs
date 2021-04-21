@@ -75,8 +75,9 @@ namespace capadatos
             return dtresultado;
         }
 
-       /* public DataRow[] siguienteInforme(DProyecto proyecto)
+        public DProyectoDatos siguienteInforme(DProyecto proyecto)
         {
+            DProyectoDatos datos = new DProyectoDatos();
             string[] array = new string[] { };
             DataRow[] dr = new DataRow[] { };
             DataTable dtresultado = new DataTable("proyectos");
@@ -104,13 +105,12 @@ namespace capadatos
 
 
 
-                dr = dtresultado.AsEnumerable().Take(1).ToArray();
-                object[] dr1 = dr[0].ItemArray;
-                string[] dr2 = Array.ConvertAll(dr1, (p => p.ToString()));
-
-
-
-                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).ToArray().ToString();
 
             }
             catch (Exception)
@@ -123,8 +123,8 @@ namespace capadatos
 
             }
 
-            return dr;
-        }*/
+            return datos;
+        }
 
 
         //Método buscar proyecto por codigo

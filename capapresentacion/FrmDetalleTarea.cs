@@ -60,6 +60,8 @@ namespace capapresentacion
         {
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
+            txtDescripcionTarea.Enabled = estado;
+            txtObservacionesTarea.Enabled = estado;
         }
         public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado)
         {

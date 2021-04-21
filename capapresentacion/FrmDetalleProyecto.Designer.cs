@@ -102,6 +102,7 @@ namespace capapresentacion
             // 
             // txtObservacionesProyecto
             // 
+            this.txtObservacionesProyecto.Enabled = false;
             this.txtObservacionesProyecto.Location = new System.Drawing.Point(26, 303);
             this.txtObservacionesProyecto.Name = "txtObservacionesProyecto";
             this.txtObservacionesProyecto.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -185,6 +186,7 @@ namespace capapresentacion
             // 
             // txtDescripcionProyecto
             // 
+            this.txtDescripcionProyecto.Enabled = false;
             this.txtDescripcionProyecto.Location = new System.Drawing.Point(26, 169);
             this.txtDescripcionProyecto.Name = "txtDescripcionProyecto";
             this.txtDescripcionProyecto.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
