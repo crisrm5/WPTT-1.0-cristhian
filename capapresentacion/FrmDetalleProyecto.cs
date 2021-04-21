@@ -271,8 +271,60 @@ namespace capapresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            string[] array = new string[] { };
-            array=NProyecto.siguienteInforme();
+           /* Console.WriteLine("estamos detrno xabales");
+            int cont = 0;
+            string[] array =NProyecto.siguienteInforme(txtIdProyecto.Text);
+           // NProyecto.siguienteInforme(txtIdProyecto.Text);
+            foreach (string dato in array)
+            {
+                Console.WriteLine(array.Length);
+                Console.WriteLine(dato);
+                Console.WriteLine(cont);
+                cont++;
+            }*/
         }
+
+        private void btnEliminarProyecto_Click(object sender, EventArgs e)
+        {
+            
+            if (!lEdicion.Text.Equals(""))
+            {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int aux = 0;
+                    int id;
+                    string rpta = "";
+
+                    rpta = NProyecto.eliminarproyecto(Convert.ToInt32(txtIdProyecto.Text));
+
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                        this.mensajeerror(rpta);
+                    }
+                }
+
+                /*if (aux < 1)
+                {
+                    MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                this.mostrarproyectos();*/
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+            }
+
+        }
+
     }
 }

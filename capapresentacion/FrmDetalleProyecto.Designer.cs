@@ -50,6 +50,7 @@ namespace capapresentacion
             this.lEdicion = new System.Windows.Forms.Label();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAtras = new FontAwesome.Sharp.IconButton();
+            this.btnEliminarProyecto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,12 +236,29 @@ namespace capapresentacion
             this.btnAtras.Text = "back";
             this.btnAtras.UseVisualStyleBackColor = true;
             // 
+            // btnEliminarProyecto
+            // 
+            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
+            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
+            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
+            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(645, 127);
+            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
+            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
+            this.btnEliminarProyecto.TabIndex = 28;
+            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
+            // 
             // FrmDetalleProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(749, 494);
+            this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.lEdicion);
@@ -289,5 +307,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label lEdicion;
         private FontAwesome.Sharp.IconButton btnAtras;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnEliminarProyecto;
     }
 }

@@ -49,7 +49,7 @@ namespace capapresentacion
             frmparent.lanzarNuevoElemento(detalleTareas);
             detalleTareas.mostrarProyectoCombobox();
             detalleTareas.mostrarEstadoCombobox();
-
+            detalleTareas.setModo("CREACIÓN");
 
         }
 

@@ -75,10 +75,10 @@ namespace capadatos
             return dtresultado;
         }
 
-        public string[] siguienteInforme(DProyecto objeto)
+       /* public DataRow[] siguienteInforme(DProyecto proyecto)
         {
             string[] array = new string[] { };
-
+            DataRow[] dr = new DataRow[] { };
             DataTable dtresultado = new DataTable("proyectos");
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -90,10 +90,28 @@ namespace capadatos
                 SqlCmd.CommandText = "spcambiarProyectoSiguiente";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
+                //Buscar proyecto por codigo
+                SqlParameter ParTextobuscar = new SqlParameter();
+                ParTextobuscar.ParameterName = "@idbuscar";
+                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextobuscar.Size = 10;
+                ParTextobuscar.Value = proyecto.Textobuscar;
+                SqlCmd.Parameters.Add(ParTextobuscar);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+
+
+                dr = dtresultado.AsEnumerable().Take(1).ToArray();
+                object[] dr1 = dr[0].ItemArray;
+                string[] dr2 = Array.ConvertAll(dr1, (p => p.ToString()));
+
+
 
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
             }
             catch (Exception)
             {
@@ -105,8 +123,8 @@ namespace capadatos
 
             }
 
-            return array;
-        }
+            return dr;
+        }*/
 
 
         //Método buscar proyecto por codigo

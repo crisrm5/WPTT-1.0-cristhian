@@ -14,10 +14,10 @@ namespace capapresentacion
 {
     public partial class FrmDetalleTarea : Form
     {
-            
+
         bool esnuevo = false;
         bool eseditar = false;
-       
+
         public FrmDetalleTarea()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace capapresentacion
             {
                 this.eseditar = true;
                 this.botones();
-                lEdicion.Text = "[MODO EDICIÓN]";
+                setModo("EDICION");
                 botonesVisible(true);
 
             }
@@ -61,7 +61,7 @@ namespace capapresentacion
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
         }
-        public void visualizaDatos(string id,string proyecto,string tarea,string descripcion,string observaciones,string fecha_creacion,string estado)
+        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado)
         {
 
             txtIdTarea.Text = id;
@@ -86,7 +86,7 @@ namespace capapresentacion
         private void habilitar(bool valor)
         {
             this.txtIdTarea.ReadOnly = true;
-            this.txtTituloTarea.ReadOnly = true;     
+            this.txtTituloTarea.ReadOnly = true;
 
         }
 
@@ -109,13 +109,13 @@ namespace capapresentacion
         {
             esnuevo = true;
             botonesVisible(true);
-            setModo("CREACION");
+            setModo("CREACIÓN");
             botones();
             limpiar();
         }
         public void setModo(String modo)
         {
-            lEdicion.Text = "[MODO "+modo+"]";
+            lEdicion.Text = "[MODO " + modo + "]";
         }
         private void botones()
         {
@@ -185,13 +185,13 @@ namespace capapresentacion
                 {
                     if (esnuevo)
                     {
-                       // rpta = NTarea.insertarTarea();
+                        // rpta = NTarea.insertarTarea();
                         //rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
                     else
                     {
 
-                       // rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text), this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
+                        // rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text), this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
                         //rpta = NProyecto.editarproyecto(
                         //    Convert.ToInt32(this.txtIdProyecto.Text),
                         //    this.txtTituloProyecto.Text.Trim().ToUpper(),
@@ -231,6 +231,45 @@ namespace capapresentacion
 
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
+        }
+
+        private void btnEliminarProyecto_Click(object sender, EventArgs e)
+        {
+            if (!txtIdTarea.Text.Equals(""))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
+                        string rpta = "";
+
+                        rpta = NTarea.eliminarTarea(Convert.ToInt32(txtIdTarea.Text));
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Registro eliminado");
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+
+                /*if (aux < 1)
+                {
+                    MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                }
+                this.mostrarproyectos();*/
+            }
+
         }
     }
 }
