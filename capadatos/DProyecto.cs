@@ -78,8 +78,6 @@ namespace capadatos
         public DProyectoDatos siguienteInforme(DProyecto proyecto)
         {
             DProyectoDatos datos = new DProyectoDatos();
-            string[] array = new string[] { };
-            DataRow[] dr = new DataRow[] { };
             DataTable dtresultado = new DataTable("proyectos");
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -105,12 +103,12 @@ namespace capadatos
 
 
 
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray().ToString();
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).ToArray().ToString();
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).ToArray().ToString();
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).ToArray().ToString();
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).ToArray().ToString();
-                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).ToArray().ToString();
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+                datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
+                datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
+                datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
+                datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
+
 
             }
             catch (Exception)
@@ -125,7 +123,54 @@ namespace capadatos
 
             return datos;
         }
+        public DProyectoDatos anteriorInforme(DProyecto proyecto)
+        {
+            DProyectoDatos datos = new DProyectoDatos();
+            DataTable dtresultado = new DataTable("proyectos");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spcambiarProyectoAnterior";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                //Buscar proyecto por codigo
+                SqlParameter ParTextobuscar = new SqlParameter();
+                ParTextobuscar.ParameterName = "@idbuscar";
+                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextobuscar.Size = 10;
+                ParTextobuscar.Value = proyecto.Textobuscar;
+                SqlCmd.Parameters.Add(ParTextobuscar);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+
+
+                datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+                datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
+                datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
+                datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
+                datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return datos;
+        }
 
         //Método buscar proyecto por codigo
         public DataTable buscarproyecto(DProyecto proyecto)

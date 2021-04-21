@@ -237,6 +237,7 @@ namespace capapresentacion
             this.btnAtras.TabIndex = 27;
             this.btnAtras.Text = "back";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnEliminarProyecto
             // 

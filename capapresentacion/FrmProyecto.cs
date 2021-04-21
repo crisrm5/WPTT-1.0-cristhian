@@ -135,7 +135,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
                     );
-                
+               // Console.WriteLine(this.dataListProyectos.CurrentRow);
                 frmparent.lanzarNuevoElemento(detalleProyecto);
                 detalleProyecto.setModo("LECTURA");
             }
