@@ -22,5 +22,10 @@ namespace capapresentacion
         {
             frmparent.lanzarNuevoElemento(new FrmDetallesTareasPersonales());
         }
+
+        private void cboBuscarTareasPersonales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

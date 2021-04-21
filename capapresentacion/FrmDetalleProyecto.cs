@@ -212,12 +212,8 @@ namespace capapresentacion
             this.txtIdProyecto.Text = id;
             this.txtTituloProyecto.Text = proyecto;
             this.txtObservacionesProyecto.Text = observaciones;
-
             this.txtDescripcionProyecto.Text = descripcion;
             //this.txtDescripcionProyecto.Visible = true;
-
-
-
             this.dtFechaProyecto.Text = fecha_creacion;
             
         }
@@ -271,19 +267,12 @@ namespace capapresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            
-            NProyecto.siguienteInforme(txtIdProyecto.Text);
-           /* Console.WriteLine("estamos detrno xabales");
-            int cont = 0;
-            string[] array =NProyecto.siguienteInforme(txtIdProyecto.Text);
-           // NProyecto.siguienteInforme(txtIdProyecto.Text);
-            foreach (string dato in array)
-            {
-                Console.WriteLine(array.Length);
-                Console.WriteLine(dato);
-                Console.WriteLine(cont);
-                cont++;
-            }*/
+            DProyectoDatos datos =NProyecto.siguienteInforme(txtIdProyecto.Text);
+            txtIdProyecto.Text= datos.Id;
+            txtDescripcionProyecto.Text = String.Join(Environment.NewLine, datos.Descripcion);
+            txtTituloProyecto.Text = datos.Titulo;
+            txtObservacionesProyecto.Text = datos.Observaciones;
+
         }
 
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
@@ -327,5 +316,13 @@ namespace capapresentacion
 
         }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            DProyectoDatos datos = NProyecto.anteriorInforme(txtIdProyecto.Text);
+            txtIdProyecto.Text = datos.Id;
+            txtDescripcionProyecto.Text = String.Join(Environment.NewLine, datos.Descripcion);
+            txtTituloProyecto.Text = datos.Titulo;
+            txtObservacionesProyecto.Text = datos.Observaciones;
+        }
     }
 }

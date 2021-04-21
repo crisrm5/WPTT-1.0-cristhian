@@ -61,5 +61,12 @@ namespace capanegocio
              objeto.Textobuscar = textobuscar;
              return objeto.siguienteInforme(objeto);
          }
+
+        public static DProyectoDatos anteriorInforme(String textobuscar)
+        {
+            DProyecto objeto = new DProyecto();
+            objeto.Textobuscar = textobuscar;
+            return objeto.anteriorInforme(objeto);
+        }
     }
 }

@@ -107,6 +107,7 @@ namespace capapresentacion
             this.cboBuscarTareasPersonales.Size = new System.Drawing.Size(153, 21);
             this.cboBuscarTareasPersonales.TabIndex = 22;
             this.cboBuscarTareasPersonales.Text = "titulo";
+            this.cboBuscarTareasPersonales.SelectedIndexChanged += new System.EventHandler(this.cboBuscarTareasPersonales_SelectedIndexChanged);
             // 
             // btnNuevo
             // 
