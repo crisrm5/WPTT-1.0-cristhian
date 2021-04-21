@@ -51,6 +51,7 @@ namespace capapresentacion
             this.comboboxProyecto = new System.Windows.Forms.ComboBox();
             this.comboboxEstado = new System.Windows.Forms.ComboBox();
             this.lEdicion = new System.Windows.Forms.Label();
+            this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHoras
@@ -258,12 +259,29 @@ namespace capapresentacion
             this.lEdicion.TabIndex = 53;
             this.lEdicion.Text = "[MODO LECTURA]";
             // 
+            // btnEliminarProyecto
+            // 
+            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
+            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
+            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
+            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(640, 162);
+            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
+            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
+            this.btnEliminarProyecto.TabIndex = 54;
+            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
+            // 
             // FrmDetalleTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
             this.Controls.Add(this.comboboxProyecto);
@@ -316,5 +334,6 @@ namespace capapresentacion
         private System.Windows.Forms.ComboBox comboboxProyecto;
         private System.Windows.Forms.ComboBox comboboxEstado;
         private System.Windows.Forms.Label lEdicion;
+        private System.Windows.Forms.Button btnEliminarProyecto;
     }
 }

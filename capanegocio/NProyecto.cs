@@ -53,10 +53,13 @@ namespace capanegocio
             return objeto.eliminarproyecto(objeto);
         }
 
-        public static string[] siguienteInforme()
-        {
-            DProyecto objeto = new DProyecto();
-            return objeto.siguienteInforme(objeto);
-        }
+
+
+         public static DProyectoDatos siguienteInforme(String textobuscar)
+         {
+             DProyecto objeto = new DProyecto();
+             objeto.Textobuscar = textobuscar;
+             return objeto.siguienteInforme(objeto);
+         }
     }
 }

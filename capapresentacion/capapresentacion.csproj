@@ -133,6 +133,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\capadatos\capadatos.csproj">
+      <Project>{67A60693-E78F-465B-81F4-6278CE35E0D4}</Project>
+      <Name>capadatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\capanegocio\capanegocio.csproj">
       <Project>{5e2b562c-8869-4f4f-8aa5-72fb698b1026}</Project>
       <Name>capanegocio</Name>
