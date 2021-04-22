@@ -63,6 +63,8 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             txtDescripcionTarea.Enabled = estado;
             txtObservacionesTarea.Enabled = estado;
+            btnEditar.Visible = !estado;
+            btnNuevo.Visible = !estado;
         }
         public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado)
         {
@@ -161,17 +163,18 @@ namespace capapresentacion
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
+
         }
 
         private void mensajeok(string mensaje)
         {
-            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void mensajeerror(string mensaje)
         {
-            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

@@ -218,24 +218,28 @@ namespace capapresentacion
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(384, 459);
+            this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Location = new System.Drawing.Point(374, 459);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
             this.btnSiguiente.TabIndex = 26;
-            this.btnSiguiente.Text = "next";
+            this.btnSiguiente.Text = "-->";
             this.btnSiguiente.UseVisualStyleBackColor = true;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAtras
             // 
+            this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnAtras.IconColor = System.Drawing.Color.Black;
             this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAtras.Location = new System.Drawing.Point(291, 459);
+            this.btnAtras.Location = new System.Drawing.Point(259, 459);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(75, 23);
             this.btnAtras.TabIndex = 27;
-            this.btnAtras.Text = "back";
+            this.btnAtras.Text = "<--";
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 

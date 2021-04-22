@@ -129,6 +129,10 @@ namespace capapresentacion
             {
                 FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
 
+                DInformacionProyecto.dataListProyectos = dataListProyectos;
+                DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+                DInformacionProyecto.detalleProyecto = detalleProyecto;
+
                 detalleProyecto.visualizaDatos(
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),                    
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
@@ -138,9 +142,7 @@ namespace capapresentacion
                     );
 
                 //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
-                DInformacionProyecto.dataListProyectos = this.dataListProyectos;
-                DInformacionProyecto.id = this.dataListProyectos.CurrentCell.RowIndex;
-                DInformacionProyecto.detalleProyecto = detalleProyecto;
+
 
                 frmparent.lanzarNuevoElemento(detalleProyecto);
 
