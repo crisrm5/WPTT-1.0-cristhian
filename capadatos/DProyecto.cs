@@ -60,7 +60,6 @@ namespace capadatos
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
 
-
             }
             catch (Exception)
             {
