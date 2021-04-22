@@ -156,7 +156,7 @@ namespace capapresentacion
    
                     botonesVisible(false);
                     botones();
-                    this.limpiar();
+                    //this.limpiar();
                     //FrmPrincipal.mostrarproyectos();
                    
                     //TODO es necesario mostrar los proyectos desde detalleProyecto?
