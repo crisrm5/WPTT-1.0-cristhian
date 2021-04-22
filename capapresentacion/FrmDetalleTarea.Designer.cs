@@ -99,7 +99,7 @@ namespace capapresentacion
             // btnEditar
             // 
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(148, 463);
+            this.btnEditar.Location = new System.Drawing.Point(148, 459);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 41;
@@ -121,7 +121,7 @@ namespace capapresentacion
             // btnNuevo
             // 
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(25, 463);
+            this.btnNuevo.Location = new System.Drawing.Point(25, 459);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 39;
@@ -141,6 +141,7 @@ namespace capapresentacion
             // 
             this.txtTituloTarea.Location = new System.Drawing.Point(148, 78);
             this.txtTituloTarea.Name = "txtTituloTarea";
+            this.txtTituloTarea.ReadOnly = true;
             this.txtTituloTarea.Size = new System.Drawing.Size(162, 20);
             this.txtTituloTarea.TabIndex = 36;
             // 
@@ -148,6 +149,7 @@ namespace capapresentacion
             // 
             this.txtIdTarea.Location = new System.Drawing.Point(148, 41);
             this.txtIdTarea.Name = "txtIdTarea";
+            this.txtIdTarea.ReadOnly = true;
             this.txtIdTarea.Size = new System.Drawing.Size(162, 20);
             this.txtIdTarea.TabIndex = 35;
             // 
@@ -282,7 +284,7 @@ namespace capapresentacion
             this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnAtras.IconColor = System.Drawing.Color.Black;
             this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAtras.Location = new System.Drawing.Point(276, 463);
+            this.btnAtras.Location = new System.Drawing.Point(276, 459);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(75, 23);
             this.btnAtras.TabIndex = 56;
@@ -292,7 +294,7 @@ namespace capapresentacion
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(369, 463);
+            this.btnSiguiente.Location = new System.Drawing.Point(369, 459);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
             this.btnSiguiente.TabIndex = 55;

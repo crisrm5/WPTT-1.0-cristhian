@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
+    <Compile Include="DInformacionTarea.cs" />
     <Compile Include="FrmAplicacion.cs">
       <SubType>Form</SubType>
     </Compile>

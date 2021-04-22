@@ -17,13 +17,14 @@ namespace capapresentacion
     public partial class FrmProyecto : Form
     {
         public FrmPrincipal frmparent;
-        //private object id;
+
         public FrmProyecto()
         {
             InitializeComponent();
             btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             mostrarproyectos();
             quitarBordes();
+
         }
 
         private void mensajeok(string mensaje)

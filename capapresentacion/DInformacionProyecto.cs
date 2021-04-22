@@ -19,11 +19,10 @@ namespace capadatos
             if (!(dataListProyectos.Rows.Count <= DInformacionProyecto.index + 1))
             {
                 index += 1;
-
             }
             else
             {
-                MessageBox.Show("Ultimo registro alcanzado", "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ultimo registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -32,10 +31,9 @@ namespace capadatos
             if (!(0 > DInformacionProyecto.index - 1))
             {
                 index -= 1;
-
             }
             else{
-                MessageBox.Show("Primer registro alcanzado", "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Primer registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
 

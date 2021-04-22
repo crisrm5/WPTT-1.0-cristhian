@@ -188,7 +188,7 @@ namespace capapresentacion
             }
             else
             {
-                this.mensajeerror("selleccione el registro a modificar");
+                this.mensajeerror("seleccione el registro a modificar");
             }
         }
 

@@ -78,20 +78,23 @@ namespace capapresentacion
             dtFechaTarea.Text = fecha_creacion;
             comboboxEstado.Items.Add(estado);
             comboboxEstado.SelectedIndex = 0;
-            //txtAplicacion.Text = aplicacion;
-            //txtObservacionesTarea.Text=o
-            //txtHoras.Text=
-
-
-
         }
 
+        /*
+        private void habilitar(bool valor)
+        {
+            this.txtIdProyecto.ReadOnly = true;
+            this.txtTituloProyecto.ReadOnly = !valor;
+            this.txtObservacionesProyecto.ReadOnly = !valor;
+            this.txtDescripcionProyecto.ReadOnly = !valor;
+            this.dtFechaProyecto.Enabled = valor;
 
-
+        }*/
         private void habilitar(bool valor)
         {
             this.txtIdTarea.ReadOnly = true;
-            this.txtTituloTarea.ReadOnly = true;
+            this.txtIdTarea.ReadOnly = true;
+            this.txtTituloTarea.ReadOnly = !valor;
 
         }
 
@@ -117,6 +120,8 @@ namespace capapresentacion
             setModo("CREACIÓN");
             botones();
             limpiar();
+            mostrarProyectoCombobox();
+            mostrarEstadoCombobox();
         }
         public void setModo(String modo)
         {
@@ -163,7 +168,7 @@ namespace capapresentacion
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
-
+            llamaVisualizaDatos();
         }
 
         private void mensajeok(string mensaje)
@@ -182,29 +187,7 @@ namespace capapresentacion
             try
             {
                 string rpta = "";
-                if (this.txtTituloTarea.Text == string.Empty)
-                {
-                    mensajeerror("Formulario incompleto");
-                    //this.iconoerror.SetError(this.txtTituloProyecto, "Ingresar Título");
-                }
-                else
-                {
-                    if (esnuevo)
-                    {
-                        // rpta = NTarea.insertarTarea();
-                        //rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
-                    }
-                    else
-                    {
 
-                        // rpta = NProyecto.editarproyecto(Convert.ToInt32(this.txtIdProyecto.Text), this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(), this.txtObservacionesProyecto.Text.Trim(), Convert.ToDateTime(this.dtFechaProyecto.Value));
-                        //rpta = NProyecto.editarproyecto(
-                        //    Convert.ToInt32(this.txtIdProyecto.Text),
-                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
-                        //    this.txtObservacionesProyecto.Text.Trim(),
-                        //    this.dtFechaProyecto.Value);
-
-                    }
 
                     if (rpta.Equals("OK"))
                     {
@@ -230,7 +213,7 @@ namespace capapresentacion
                     //TODO es necesario mostrar los proyectos desde detalleProyecto?
 
 
-                }
+                
             }
             catch (Exception ex)
             {
@@ -279,17 +262,32 @@ namespace capapresentacion
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
-        {   
-            //DTareasDatos datos= NTarea.siguienteInforme(txtIdTarea.Text);
-
-
-
-            //txtIdTarea.Text = datos.Id;
+        {
+            DInformacionTarea.sumaIndex();
+            comboboxProyecto.Items.Clear();
+            comboboxEstado.Items.Clear();
+            llamaVisualizaDatos();
 
         }
+        public void llamaVisualizaDatos()
+        {
 
+            visualizaDatos(
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["id"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["proyecto"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tarea"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["descripcion"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["observaciones"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["fecha_creacion"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["estado"].Value)
+                );
+        }
         private void btnAtras_Click(object sender, EventArgs e)
         {
+            DInformacionTarea.restaIndex();
+            comboboxProyecto.Items.Clear();
+            comboboxEstado.Items.Clear();
+            llamaVisualizaDatos();
 
         }
     }
