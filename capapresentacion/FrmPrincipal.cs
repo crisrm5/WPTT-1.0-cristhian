@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 
 using capanegocio;
+using capadatos;
 
 namespace capapresentacion
 {
@@ -20,7 +21,12 @@ namespace capapresentacion
         private Panel panelIzquierdo;
         private string nombreusuario;
 
+
+        private DLogin login;
         public string Nombreusuario { get => nombreusuario; set => nombreusuario = value; }
+        public DLogin Login { get => login; set => login = value; }
+
+
 
         public FrmPrincipal()
         {
@@ -30,7 +36,9 @@ namespace capapresentacion
             panelMenu.Controls.Add(panelIzquierdo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Text = string.Empty;
-            this.txtnombreusuario.Text = "dsadasdsas";
+            //txtnombreusuario.Text = login.Usuario;
+            //Console.WriteLine(Login.Usuario+" usuario");
+            //this.txtnombreusuario.Text = "dsadasdsas";
             
             //AbrirFormulario(new FrmProyectosl());
 
@@ -71,6 +79,13 @@ namespace capapresentacion
 
             //lblTitleChildForm.Text = childForm.Text;
         }
+
+        public void informacionLogin(string login,string bd)
+        {
+            Console.WriteLine(login);
+            txtnombreusuario.Text = login;
+        }
+
         public void cierraForm()
         {
             this.Hide();

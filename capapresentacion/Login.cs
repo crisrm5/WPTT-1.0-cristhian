@@ -10,13 +10,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
+using capanegocio;
 
 namespace capapresentacion
 {
     public partial class Login : Form
     {
         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-
+        
         public Login()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace capapresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            NLogin login = new NLogin();
             //sacamos el hostname
             //String hostName = Dns.GetHostName();
             //Console.WriteLine(hostName);
@@ -41,17 +44,22 @@ namespace capapresentacion
                 {
                     while (oReader.Read())
                     {
-                        Console.WriteLine("dsada");
+                        
                         existe = oReader["existe"].ToString();
+                        
                     }
                 }
                 if (existe.Equals("1"))
                 {
-                    Console.WriteLine("dsada");
+                    Console.WriteLine(usuario.Text);
                     FrmPrincipal principal = new FrmPrincipal();
-                    
+                    //principal.prueba(usuario.Text);
                     this.Hide();
-                    principal.Nombreusuario = usuario.Text;
+
+                    //principal.Login = login.informacionLogin("prueba","basedeprueba");
+                    //principal.Nombreusuario = login.informacionLogin(usuario.Text);
+                   // principal.Nombreusuario = "cristobal";
+
                     principal.Show();
                     
 

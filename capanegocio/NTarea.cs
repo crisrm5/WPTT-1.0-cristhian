@@ -110,5 +110,12 @@ namespace capanegocio
 
             return objeto.insertartarea(objeto);
         }
+
+        public static DTareasDatos siguienteInforme(string textobuscar)
+        {
+            DTarea objeto = new DTarea();
+            objeto.Textobuscar = textobuscar;
+            return objeto.siguienteInforme(objeto);
+        }
     }
 }

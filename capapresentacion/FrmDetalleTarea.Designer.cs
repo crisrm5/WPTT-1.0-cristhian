@@ -52,6 +52,8 @@ namespace capapresentacion
             this.comboboxEstado = new System.Windows.Forms.ComboBox();
             this.lEdicion = new System.Windows.Forms.Label();
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
+            this.btnAtras = new FontAwesome.Sharp.IconButton();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtHoras
@@ -275,12 +277,37 @@ namespace capapresentacion
             this.btnEliminarProyecto.UseVisualStyleBackColor = false;
             this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
+            // btnAtras
+            // 
+            this.btnAtras.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnAtras.IconColor = System.Drawing.Color.Black;
+            this.btnAtras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAtras.Location = new System.Drawing.Point(276, 463);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.TabIndex = 56;
+            this.btnAtras.Text = "back";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(369, 463);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 55;
+            this.btnSiguiente.Text = "next";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
             // FrmDetalleTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
@@ -335,5 +362,7 @@ namespace capapresentacion
         private System.Windows.Forms.ComboBox comboboxEstado;
         private System.Windows.Forms.Label lEdicion;
         private System.Windows.Forms.Button btnEliminarProyecto;
+        private FontAwesome.Sharp.IconButton btnAtras;
+        private System.Windows.Forms.Button btnSiguiente;
     }
 }

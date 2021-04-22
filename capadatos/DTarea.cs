@@ -269,6 +269,59 @@ namespace capadatos
             return array;
         }
 
+        public  DTareasDatos siguienteInforme(DTarea tarea)
+        {
+
+                DTareasDatos datos = new DTareasDatos();
+                DataTable dtresultado = new DataTable("proyectos");
+                SqlConnection SqlCon = new SqlConnection();
+                try
+                {
+                    SqlCon.ConnectionString = Conexion.cn;
+                    SqlCon.Open();
+                    SqlCommand SqlCmd = new SqlCommand();
+                    SqlCmd.Connection = SqlCon;
+                    SqlCmd.CommandText = "spcambiarTareasSiguiente";
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                    //Buscar proyecto por codigo
+                    SqlParameter ParTextobuscar = new SqlParameter();
+                    ParTextobuscar.ParameterName = "@idbuscar";
+                    ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                    ParTextobuscar.Size = 10;
+                    ParTextobuscar.Value = tarea.Textobuscar;
+                    SqlCmd.Parameters.Add(ParTextobuscar);
+
+                    SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                    sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+
+
+                    datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+                    datos.Proyecto = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
+                    datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
+                    datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
+                    datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
+                    datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First();
+                    datos.Estado = dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First();
+
+
+            }
+                catch (Exception)
+                {
+                    dtresultado = null;
+                }
+                finally
+                {
+                    if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+                }
+
+                return datos;
+           
+        }
+
         public string editarTarea(DTarea tarea)
         {
             throw new NotImplementedException();

@@ -266,12 +266,22 @@ namespace capapresentacion
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
-        {
+        {/*
             DProyectoDatos datos =NProyecto.siguienteInforme(txtIdProyecto.Text);
             txtIdProyecto.Text= datos.Id;
             txtDescripcionProyecto.Text = String.Join(Environment.NewLine, datos.Descripcion);
             txtTituloProyecto.Text = datos.Titulo;
             txtObservacionesProyecto.Text = datos.Observaciones;
+            */
+            //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
+            //Console.WriteLine(DInformacionProyecto.id);
+            DInformacionProyecto.detalleProyecto.visualizaDatos(
+                    Convert.ToString(DInformacionProyecto.dataListProyectos.SelectedRows[DInformacionProyecto.id].Cells["id"].Value),
+                    Convert.ToString(DInformacionProyecto.dataListProyectos.SelectedRows[DInformacionProyecto.id].Cells["titulo"].Value),
+                    Convert.ToString(DInformacionProyecto.dataListProyectos.SelectedRows[DInformacionProyecto.id].Cells["descripcion"].Value),
+                    Convert.ToString(DInformacionProyecto.dataListProyectos.SelectedRows[DInformacionProyecto.id].Cells["observaciones"].Value),
+                    Convert.ToString(DInformacionProyecto.dataListProyectos.SelectedRows[DInformacionProyecto.id].Cells["fecha"].Value));
+            
 
         }
 

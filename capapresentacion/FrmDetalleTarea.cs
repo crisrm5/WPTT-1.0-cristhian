@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 
 namespace capapresentacion
@@ -271,6 +272,21 @@ namespace capapresentacion
                 }
                 this.mostrarproyectos();*/
             }
+
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {   
+            //DTareasDatos datos= NTarea.siguienteInforme(txtIdTarea.Text);
+
+
+
+            //txtIdTarea.Text = datos.Id;
+
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
 
         }
     }

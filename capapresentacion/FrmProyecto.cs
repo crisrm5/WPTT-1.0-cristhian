@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 
 
@@ -135,8 +136,18 @@ namespace capapresentacion
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
                     );
-               // Console.WriteLine(this.dataListProyectos.CurrentRow);
+
+                //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
+                DInformacionProyecto.dataListProyectos = this.dataListProyectos;
+                DInformacionProyecto.id = this.dataListProyectos.CurrentCell.RowIndex;
+                DInformacionProyecto.detalleProyecto = detalleProyecto;
+
                 frmparent.lanzarNuevoElemento(detalleProyecto);
+
+
+
+
+
                 detalleProyecto.setModo("LECTURA");
             }
             catch (Exception)
