@@ -225,7 +225,7 @@ namespace capapresentacion
                     }
                     else
                     {
-                        //TODO 
+                        //TODO falta por acabar, salta error
                         rpta = NTarea.editarTarea(
                             Convert.ToInt32(this.txtIdTarea.Text),
                             this.txtTituloTarea.Text.Trim().ToUpper(),
