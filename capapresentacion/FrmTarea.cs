@@ -121,7 +121,8 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
                 Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
+                Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
+                Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                 );
             detalleTareas.setModo("LECTURA");
             frmparent.lanzarNuevoElemento(detalleTareas);
@@ -174,7 +175,8 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
+                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
+                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
                     );
 
                 frmparent.lanzarNuevoElemento(detalleTarea);

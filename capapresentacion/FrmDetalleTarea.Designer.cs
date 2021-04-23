@@ -54,6 +54,8 @@ namespace capapresentacion
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.btnAtras = new FontAwesome.Sharp.IconButton();
             this.btnSiguiente = new System.Windows.Forms.Button();
+            this.ltec = new System.Windows.Forms.Label();
+            this.lTecnico = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtHoras
@@ -136,6 +138,7 @@ namespace capapresentacion
             this.dtFechaTarea.Name = "dtFechaTarea";
             this.dtFechaTarea.Size = new System.Drawing.Size(204, 20);
             this.dtFechaTarea.TabIndex = 38;
+            this.dtFechaTarea.ValueChanged += new System.EventHandler(this.dtFechaTarea_ValueChanged);
             // 
             // txtTituloTarea
             // 
@@ -302,12 +305,33 @@ namespace capapresentacion
             this.btnSiguiente.UseVisualStyleBackColor = true;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
+            // ltec
+            // 
+            this.ltec.AutoSize = true;
+            this.ltec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltec.Location = new System.Drawing.Point(602, 12);
+            this.ltec.Name = "ltec";
+            this.ltec.Size = new System.Drawing.Size(57, 13);
+            this.ltec.TabIndex = 57;
+            this.ltec.Text = "Tecnico:";
+            // 
+            // lTecnico
+            // 
+            this.lTecnico.AutoSize = true;
+            this.lTecnico.Location = new System.Drawing.Point(657, 12);
+            this.lTecnico.Name = "lTecnico";
+            this.lTecnico.Size = new System.Drawing.Size(20, 13);
+            this.lTecnico.TabIndex = 58;
+            this.lTecnico.Text = "T1";
+            // 
             // FrmDetalleTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.lTecnico);
+            this.Controls.Add(this.ltec);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnEliminarProyecto);
@@ -366,5 +390,7 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnEliminarProyecto;
         private FontAwesome.Sharp.IconButton btnAtras;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Label ltec;
+        private System.Windows.Forms.Label lTecnico;
     }
 }

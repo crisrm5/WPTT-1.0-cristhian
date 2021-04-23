@@ -20,6 +20,7 @@ namespace capadatos
         private string _proyecto;
         private string _observaciones;
         private DateTime _fecha;
+        private string _tecnico;
 
         public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -31,6 +32,7 @@ namespace capadatos
         public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
         public string Proyecto { get => _proyecto; set => _proyecto = value; }
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
+        public string Tecnico { get => _tecnico; set => _tecnico = value; }
 
         public DTarea()
         {
@@ -133,12 +135,13 @@ namespace capadatos
                 //Definición de atributos
 
                 //id
+                /*
                 SqlParameter ParId = new SqlParameter();
                 ParId.ParameterName = "@id";
                 ParId.SqlDbType = SqlDbType.Int;
                 ParId.Direction = ParameterDirection.Output;
                 SqlCmd.Parameters.Add(ParId);
-
+                */
 
                 //titulo
                 SqlParameter ParTitulo = new SqlParameter();

@@ -66,7 +66,7 @@ namespace capapresentacion
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
         }
-        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado)
+        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado,string tecnico)
         {
 
             txtIdTarea.Text = id;
@@ -78,6 +78,7 @@ namespace capapresentacion
             dtFechaTarea.Text = fecha_creacion;
             comboboxEstado.Items.Add(estado);
             comboboxEstado.SelectedIndex = 0;
+            lTecnico.Text = tecnico;
         }
 
         /*
@@ -184,16 +185,58 @@ namespace capapresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(comboboxProyecto.SelectedItem.ToString());
+            Console.WriteLine(comboboxEstado.SelectedItem.ToString()); ;
+            Console.WriteLine(this.lTecnico.Text); 
+            //Console.WriteLine(Convert.ToInt32(this.txtIdTarea.Text));
+            Console.WriteLine(this.txtTituloTarea.Text.Trim().ToUpper());
+            Console.WriteLine(this.txtDescripcionTarea.Text.Trim());
+            Console.WriteLine(Convert.ToDateTime(this.dtFechaTarea.Value));
+            Console.WriteLine(this.txtObservacionesTarea.Text.Trim());
+
             try
             {
                 string rpta = "";
 
+
+                if (this.txtTituloTarea.Text == string.Empty)
+                {
+                    mensajeerror("Formulario incompleto");
+                    //this.iconoerror.SetError(this.txtTituloTarea, "Ingresar Título");
+                }
+                else
+                {
+                    if (esnuevo)
+                    {
+
+                        rpta = NTarea.insertartarea(
+                            this.txtTituloTarea.Text.Trim().ToUpper(),
+                            this.txtDescripcionTarea.Text.Trim(),  
+                            this.txtObservacionesTarea.Text.Trim(),
+                            Convert.ToDateTime(this.dtFechaTarea.Value),
+                            this.comboboxEstado.SelectedItem.ToString() ,
+                            this.lTecnico.Text,
+                            this.comboboxProyecto.SelectedItem.ToString()
+                            );
+                    }
+                    else
+                    {
+                        rpta = NTarea.editarTarea(Convert.ToInt32(this.txtIdTarea.Text), this.txtTituloTarea.Text, this.comboboxProyecto.SelectedValue.ToString(), this.txtDescripcionTarea.Text.Trim(), this.txtObservacionesTarea.Text.Trim(), this.comboboxEstado.SelectedValue.ToString(), Convert.ToDateTime(this.dtFechaTarea.Value),this.lTecnico.Text);
+                        // rpta = NTarea.editarTarea(Convert.ToInt32(this.txtIdTarea.Text), this.txtTituloTarea.Text.Trim().ToUpper(), this.txtDescripcionTarea.Text.Trim(), this.txtObservacionesTarea.Text.Trim(), this.comboboxEstado.SelectedValue, Convert.ToDateTime(this.dtFechaTarea.Value));
+                        //rpta = NProyecto.editarproyecto(
+                        //    Convert.ToInt32(this.txtIdProyecto.Text),
+                        //    this.txtTituloProyecto.Text.Trim().ToUpper(),
+                        //    this.txtObservacionesProyecto.Text.Trim(),
+                        //    this.dtFechaProyecto.Value);
+
+                    }
 
                     if (rpta.Equals("OK"))
                     {
                         if (esnuevo)
                         {
                             this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+
                         }
                         else
                         {
@@ -208,19 +251,17 @@ namespace capapresentacion
                     botonesVisible(false);
                     botones();
                     this.limpiar();
-                    //FrmPrincipal.mostrarproyectos();
 
-                    //TODO es necesario mostrar los proyectos desde detalleProyecto?
-
-
-                
+                }
             }
+
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
         }
+        
 
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
@@ -279,7 +320,8 @@ namespace capapresentacion
                 Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["descripcion"].Value),
                 Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["observaciones"].Value),
                 Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["fecha_creacion"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["estado"].Value)
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["estado"].Value),
+                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tecnico"].Value)
                 );
         }
         private void btnAtras_Click(object sender, EventArgs e)
@@ -288,6 +330,11 @@ namespace capapresentacion
             comboboxProyecto.Items.Clear();
             comboboxEstado.Items.Clear();
             llamaVisualizaDatos();
+
+        }
+
+        private void dtFechaTarea_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

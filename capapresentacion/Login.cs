@@ -51,9 +51,11 @@ namespace capapresentacion
                 }
                 if (existe.Equals("1"))
                 {
-                    Console.WriteLine(usuario.Text);
+                    //Console.WriteLine(usuario.Text);
                     FrmPrincipal principal = new FrmPrincipal();
                     //principal.prueba(usuario.Text);
+                    DLogin.usuario= usuario.Text;
+
                     this.Hide();
 
                     //principal.Login = login.informacionLogin("prueba","basedeprueba");
