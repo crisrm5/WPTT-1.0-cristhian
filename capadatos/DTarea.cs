@@ -332,7 +332,100 @@ namespace capadatos
 
         public string editarTarea(DTarea tarea)
         {
-            //Falta añadir el procedimiento de insertar la tarea
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speditar_tarea";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Definición de atributos
+
+                //id
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Value = tarea.Id;
+                SqlCmd.Parameters.Add(ParId);
+
+
+                //titulo
+                SqlParameter ParTitulo = new SqlParameter();
+                ParTitulo.ParameterName = "@titulo";
+                ParTitulo.SqlDbType = SqlDbType.NVarChar;
+                ParTitulo.Size = 1024;
+                ParTitulo.Value = tarea.Titulo;
+                SqlCmd.Parameters.Add(ParTitulo);
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
+                //ParFecha.Size = 1024;
+                ParDescripcion.Value = tarea.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+                //observaciones
+                SqlParameter ParObservaciones = new SqlParameter();
+                ParObservaciones.ParameterName = "@observaciones";
+                ParObservaciones.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParObservaciones.Value = tarea.Observaciones;
+                SqlCmd.Parameters.Add(ParObservaciones);
+
+
+                //fecha
+                SqlParameter ParFecha = new SqlParameter();
+                ParFecha.ParameterName = "@fecha_creacion";
+                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                //ParFecha.Size = 1024;
+                ParFecha.Value = tarea.Fecha;
+                SqlCmd.Parameters.Add(ParFecha);
+
+
+                //estado
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                ParEstado.SqlDbType = SqlDbType.NText;
+                //ParFecha.Size = 1024;
+                ParEstado.Value = tarea.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
+
+                //tecnico
+                SqlParameter ParTecnico = new SqlParameter();
+                ParTecnico.ParameterName = "@tecnico";
+                ParTecnico.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParTecnico.Value = tarea.Tecnico;
+                SqlCmd.Parameters.Add(ParTecnico);
+
+                //proyecto
+                SqlParameter ParProyecto = new SqlParameter();
+                ParProyecto.ParameterName = "@proyecto";
+                ParProyecto.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParProyecto.Value = tarea.Proyecto;
+                SqlCmd.Parameters.Add(ParProyecto);
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible actualizar el Proyecto";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            return rpta;
         }
 
         public DataTable buscartareaDescripcion(DTarea tarea)
