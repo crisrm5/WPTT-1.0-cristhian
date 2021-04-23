@@ -21,8 +21,8 @@ namespace capapresentacion
         System.Timers.Timer temporizador;
         int hora, minuto, segundo;
 
-        //SqlConnection con = new SqlConnection("Data Source=PCCRISTOBAL\\SQL2019;Initial Catalog=V2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-        SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=DesarrollosTime;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=WPTimeTracking;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+       // SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=DesarrollosTime;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
 
 
         //SqlConnection con = new SqlConnection("Data Source=PCCRISTOBAL\\SQL2019;Initial Catalog=Prueba;Integrated Security=True"); 
@@ -173,7 +173,7 @@ namespace capapresentacion
                 hora += 1;
             }
             tCronometro.Text = string.Format("{0}:{1}:{2}",hora.ToString().PadLeft(2, '0'), minuto.ToString().PadLeft(2, '0'),segundo.ToString().PadLeft(2, '0'));
-            }));
+            }));//TODO me ha saltado error cuando desde el widget pongo a rodar el tiempo y luego maximizo el formulario
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
