@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
     <Compile Include="DInformacionTarea.cs" />
-    <Compile Include="DLogin.cs" />
     <Compile Include="FrmAplicacion.cs">
       <SubType>Form</SubType>
     </Compile>

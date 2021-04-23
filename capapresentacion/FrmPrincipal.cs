@@ -22,9 +22,9 @@ namespace capapresentacion
         private string nombreusuario;
 
 
-        private DLogin login;
+       // private DLogin login;
         public string Nombreusuario { get => nombreusuario; set => nombreusuario = value; }
-        public DLogin Login { get => login; set => login = value; }
+        //public DLogin Login { get => login; set => login = value; }
 
 
 

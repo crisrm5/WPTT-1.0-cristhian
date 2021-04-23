@@ -168,26 +168,31 @@ namespace capadatos
                 ParDescripcion.Value = tarea.Descripcion;
                 SqlCmd.Parameters.Add(ParDescripcion);
 
-                //fecha
-                SqlParameter ParFecha = new SqlParameter();
-                ParFecha.ParameterName = "@fecha_creacion";
-                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
-                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
-                //ParFecha.Size = 1024;
-                ParFecha.Value = tarea.Fecha;
-                SqlCmd.Parameters.Add(ParFecha);
 
                 //estado
                 SqlParameter ParEstado = new SqlParameter();
-                ParFecha.ParameterName = "@estado";
+                ParEstado.ParameterName = "@estado";
                 //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
-                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                ParEstado.SqlDbType = SqlDbType.NText;
                 //ParFecha.Size = 1024;
-                ParFecha.Value = tarea.Fecha;
+                ParEstado.Value = tarea.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 
+                //tecnico
+                SqlParameter ParTecnico = new SqlParameter();
+                ParTecnico.ParameterName = "@tecnico";
+                ParTecnico.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParTecnico.Value = tarea.Tecnico;
+                SqlCmd.Parameters.Add(ParTecnico);
 
-
+                //proyecto
+                SqlParameter ParProyecto = new SqlParameter();
+                ParProyecto.ParameterName = "@proyecto";
+                ParProyecto.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParProyecto.Value = tarea.Proyecto;
+                SqlCmd.Parameters.Add(ParProyecto);
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Proyecto";
 
@@ -327,7 +332,7 @@ namespace capadatos
 
         public string editarTarea(DTarea tarea)
         {
-            throw new NotImplementedException();
+            //Falta añadir el procedimiento de insertar la tarea
         }
 
         public DataTable buscartareaDescripcion(DTarea tarea)

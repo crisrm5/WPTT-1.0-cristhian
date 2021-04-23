@@ -72,7 +72,7 @@ namespace capanegocio
             return objeto.eliminarTarea(objeto);
         }
 
-        public static string editarTarea(int id, string titulo, string proyecto, string descripcion, string observaciones, string estado, DateTime fecha,string tecnico)
+        public static string editarTarea(int id, string titulo, string descripcion, string observaciones, DateTime fecha, string estado, string tecnico, string proyecto)
         {
             DTarea objeto = new DTarea();
             objeto.Id = id;
@@ -83,9 +83,24 @@ namespace capanegocio
             objeto.Estado = estado;
             objeto.Fecha = fecha;
             objeto.Tecnico = tecnico;
+
             return objeto.editarTarea(objeto);
         }
 
+        public static string insertartarea(/*int id,*/ string titulo, string descripcion, string observaciones, DateTime fecha, string estado, string tecnico, string proyecto)
+        {
+            DTarea objeto = new DTarea();
+            //objeto.Id = id;
+            objeto.Titulo = titulo;
+            objeto.Proyecto = proyecto;
+            objeto.Descripcion = descripcion;
+            objeto.Observaciones = observaciones;
+            objeto.Estado = estado;
+            objeto.Fecha = fecha;
+            objeto.Tecnico = tecnico;
+
+            return objeto.insertartarea(objeto);
+        }
 
         public static string[] mostrarProyectoCombobox()
         {
@@ -101,20 +116,7 @@ namespace capanegocio
         }
 
        // public static string insertartarea(string titulo, string observaciones, string descripcion, DateTime fecha)
-        public static string insertartarea(/*int id,*/ string titulo,  string descripcion, string observaciones, DateTime fecha, string estado, string tecnico,string proyecto)
-        {
-            DTarea objeto = new DTarea();
-            //objeto.Id = id;
-            objeto.Titulo = titulo;
-            objeto.Proyecto = proyecto;
-            objeto.Descripcion = descripcion;
-            objeto.Observaciones = observaciones;
-            objeto.Estado = estado;
-            objeto.Fecha = fecha;
-            objeto.Tecnico = tecnico;
-
-            return objeto.insertartarea(objeto);
-        }
+ 
 
         public static DTareasDatos siguienteInforme(string textobuscar)
         {

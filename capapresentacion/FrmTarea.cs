@@ -50,6 +50,7 @@ namespace capapresentacion
             detalleTareas.mostrarProyectoCombobox();
             detalleTareas.mostrarEstadoCombobox();
             detalleTareas.setModo("CREACIÓN");
+            detalleTareas.setTecnico();
 
         }
 

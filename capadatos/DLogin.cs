@@ -1,29 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace capadatos
 {
-    public class DLogin
+   public static class DLogin
     {
-        private string usuario;
-        private string conexionbd;
+        public static string usuario;
+        public static string conexionBD;
+        public static string tecnico;
 
-        public DLogin(string usuario, string conexionbd)
-        {
-            this.usuario = usuario;
-            this.conexionbd = conexionbd;
-        }
-
-        public DLogin()
+        public static void sacaTecnico(String user)
         {
 
+            DataTable dtresultado = new DataTable("tecnicos");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_tecnico";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Buscar proyecto por codigo
+                SqlParameter ParTextobuscar = new SqlParameter();
+                ParTextobuscar.ParameterName = "@usuario";
+                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextobuscar.Size = 10;
+                ParTextobuscar.Value = user;
+                SqlCmd.Parameters.Add(ParTextobuscar);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+                
+
+                tecnico = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
+                Console.WriteLine(tecnico + " este es el tecnico, estamos en el procedure");
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
         }
-
-
-        public string Usuario { get => usuario; set => usuario = value; }
-        public string Conexionbd { get => conexionbd; set => conexionbd = value; }
     }
 }

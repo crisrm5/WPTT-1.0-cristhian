@@ -10,12 +10,15 @@ namespace capanegocio
    
     public class NLogin
     {
-        DLogin login = new DLogin();
-        public DLogin informacionLogin(String datos,String conexionBD)
+        
+        public void informacionLogin(String usuario,String conexionBD)
         {
-            login.Usuario = datos;
-            login.Conexionbd = conexionBD;
-            return login;
+            DLogin.usuario = usuario;
+            DLogin.conexionBD = conexionBD;
+            DLogin.sacaTecnico(usuario);
+            //return login;
         }
+
+
     }
 }

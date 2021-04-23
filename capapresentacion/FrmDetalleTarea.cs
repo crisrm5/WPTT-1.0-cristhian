@@ -38,6 +38,10 @@ namespace capapresentacion
             comboboxEstado.SelectedIndex = 0;
 
         }
+        public void setTecnico()
+        {
+            lTecnico.Text = DLogin.tecnico;
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -221,7 +225,16 @@ namespace capapresentacion
                     }
                     else
                     {
-                        rpta = NTarea.editarTarea(Convert.ToInt32(this.txtIdTarea.Text), this.txtTituloTarea.Text, this.comboboxProyecto.SelectedValue.ToString(), this.txtDescripcionTarea.Text.Trim(), this.txtObservacionesTarea.Text.Trim(), this.comboboxEstado.SelectedValue.ToString(), Convert.ToDateTime(this.dtFechaTarea.Value),this.lTecnico.Text);
+                        rpta = NTarea.editarTarea(
+                            Convert.ToInt32(this.txtIdTarea.Text),
+                            this.txtTituloTarea.Text.Trim().ToUpper(),
+                            this.txtDescripcionTarea.Text.Trim(),
+                            this.txtObservacionesTarea.Text.Trim(),
+                            Convert.ToDateTime(this.dtFechaTarea.Value),
+                            this.comboboxEstado.SelectedItem.ToString(),
+                            this.lTecnico.Text,
+                            this.comboboxProyecto.SelectedItem.ToString()
+                            );
                         // rpta = NTarea.editarTarea(Convert.ToInt32(this.txtIdTarea.Text), this.txtTituloTarea.Text.Trim().ToUpper(), this.txtDescripcionTarea.Text.Trim(), this.txtObservacionesTarea.Text.Trim(), this.comboboxEstado.SelectedValue, Convert.ToDateTime(this.dtFechaTarea.Value));
                         //rpta = NProyecto.editarproyecto(
                         //    Convert.ToInt32(this.txtIdProyecto.Text),

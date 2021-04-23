@@ -17,6 +17,7 @@ namespace capapresentacion
 {
     public partial class Login : Form
     {
+        
         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
         
         public Login()
@@ -54,8 +55,10 @@ namespace capapresentacion
                     //Console.WriteLine(usuario.Text);
                     FrmPrincipal principal = new FrmPrincipal();
                     //principal.prueba(usuario.Text);
-                    DLogin.usuario= usuario.Text;
-
+                    //DLogin.usuario= usuario.Text;
+                    NLogin nl = new NLogin();
+                    nl.informacionLogin(usuario.Text, "aqui ira la base de datos");
+                    //Console.WriteLine(DLogin.tecnico+ "<- estamos en login y este es el tecnico");
                     this.Hide();
 
                     //principal.Login = login.informacionLogin("prueba","basedeprueba");
