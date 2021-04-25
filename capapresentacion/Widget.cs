@@ -21,13 +21,9 @@ namespace capapresentacion
         System.Timers.Timer temporizador;
         int hora, minuto, segundo;
 
-        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=WPTimeTracking;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-       // SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=DesarrollosTime;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-
-
-        //SqlConnection con = new SqlConnection("Data Source=PCCRISTOBAL\\SQL2019;Initial Catalog=Prueba;Integrated Security=True"); 
-        //Para conectarse desde autentificacion de windows
-
+        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        // SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        
         public Widget()
         {
             InitializeComponent();
@@ -84,15 +80,14 @@ namespace capapresentacion
             try
             {
                 con.Open();
-                //SqlCommand query = new SqlCommand("select id,titulo from Proyectos", con);
-                SqlCommand query = new SqlCommand("select * from TareasPersonales tt where 5=tt.id_empleado and estado=1 order by tt.idTarea desc", con);
-                
-                //SqlCommand query = new SqlCommand("select codigo,nombre from Personal", con);
+               SqlCommand query = new SqlCommand("SELECT* FROM Tareas order by fecha_creacion desc", con);
+            
 
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();
-                dt.Columns.Add("descripcion", typeof(string));
+                dt.Columns.Add("titulo", typeof(string));
+                ///dt.Columns.Add("descripcion", typeof(string));
                 //dt.Columns.Add("id", typeof(string));
                 //dt.Columns.Add("titulo", typeof(string));
 
@@ -102,7 +97,8 @@ namespace capapresentacion
 
 
                 //listaTareasPersonales.ValueMember = "descripcion";
-                listaTareasPersonales.DisplayMember = "descripcion";
+                listaTareasPersonales.DisplayMember = "titulo";
+                ///listaTareasPersonales.DisplayMember = "descripcion";
 
                 //comboBox1.ValueMember = "codigo";
                 //comboBox1.DisplayMember = "nombre";
@@ -116,8 +112,6 @@ namespace capapresentacion
             {
 
             }
-
-
 
 
             /*
@@ -341,10 +335,6 @@ namespace capapresentacion
         {
 
         }
-
-
         /*fin del drag*/
-
-
     }
 }

@@ -28,7 +28,7 @@ namespace capadatos
                 SqlCmd.CommandText = "spmostrar_tecnico";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //Buscar proyecto por codigo
+                //consulta del usuario
                 SqlParameter ParTextobuscar = new SqlParameter();
                 ParTextobuscar.ParameterName = "@usuario";
                 ParTextobuscar.SqlDbType = SqlDbType.VarChar;
@@ -39,8 +39,6 @@ namespace capadatos
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
 
-
-                
 
                 tecnico = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
                 Console.WriteLine(tecnico + " este es el tecnico, estamos en el procedure");

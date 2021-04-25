@@ -60,6 +60,7 @@ namespace capapresentacion
             this.btnCancelar.TabIndex = 42;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // btnEditar
             // 
@@ -70,6 +71,7 @@ namespace capapresentacion
             this.btnEditar.TabIndex = 41;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // btnGuardar
             // 
@@ -91,10 +93,12 @@ namespace capapresentacion
             this.btnNuevo.TabIndex = 39;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dtFechaInicio
             // 
-            this.dtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaInicio.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFechaInicio.Location = new System.Drawing.Point(513, 15);
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(204, 20);
@@ -106,6 +110,7 @@ namespace capapresentacion
             this.txtTarea.Name = "txtTarea";
             this.txtTarea.Size = new System.Drawing.Size(162, 20);
             this.txtTarea.TabIndex = 37;
+            this.mensajetool.SetToolTip(this.txtTarea, "Seleccione Tarea");
             // 
             // txtObservaciones
             // 
@@ -167,7 +172,8 @@ namespace capapresentacion
             // 
             // dtFechaFin
             // 
-            this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaFin.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFechaFin.Location = new System.Drawing.Point(513, 55);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(204, 20);

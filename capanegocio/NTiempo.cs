@@ -25,10 +25,10 @@ namespace capanegocio
         }
 
         //TODO cambiar el id_Tarea para que reciba un string desde la entrada de datos
-        public static string insertartiempo(string id_tarea, DateTime fecha_inicio, DateTime fecha_fin,string observaciones)
+        public static string insertartiempo(string tarea, DateTime fecha_inicio, DateTime fecha_fin,string observaciones)
         {
             DTiempo objeto = new DTiempo();
-            objeto.Id_tarea = id_tarea;
+            objeto.Tarea = tarea;
             objeto.Fecha_inicio = fecha_inicio;
             objeto.Fecha_fin = fecha_fin;
             objeto.Observaciones = observaciones;
@@ -36,11 +36,11 @@ namespace capanegocio
             return objeto.insertartiempo(objeto);
         }
 
-        public static string editartiempo(int id, string id_tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
+        public static string editartiempo(int id, string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
         {
             DTiempo objeto = new DTiempo();
             objeto.Id = id;
-            objeto.Id_tarea = id_tarea;
+            objeto.Tarea = tarea;
             objeto.Fecha_inicio = fecha_inicio;
             objeto.Fecha_fin = fecha_fin;
             objeto.Observaciones = observaciones;
@@ -54,6 +54,24 @@ namespace capanegocio
             objeto.Id = id;
 
             return objeto.eliminartiempo(objeto);
+        }
+
+        public static string buscarid(string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones)
+        {
+            DTiempoid objeto = new DTiempoid();
+            //objeto.Id = id;
+
+            //return objeto.getid(objeto);
+
+           
+            objeto.Tarea = tarea;
+            objeto.Fecha_inicio = fecha_inicio;
+            objeto.Fecha_fin = fecha_fin;
+            objeto.Observaciones = observaciones;
+
+            return objeto.getid(objeto);
+
+
         }
 
     }

@@ -126,7 +126,11 @@ namespace capapresentacion
                 {
                     if (esnuevo)
                     {
-                        rpta = NProyecto.insertarproyecto(this.txtTituloProyecto.Text.Trim().ToUpper(), this.txtDescripcionProyecto.Text.Trim(),this.txtObservacionesProyecto.Text.Trim(),Convert.ToDateTime(this.dtFechaProyecto.Value));
+                        rpta = NProyecto.insertarproyecto(
+                            this.txtTituloProyecto.Text.Trim().ToUpper(),
+                            this.txtDescripcionProyecto.Text.Trim(),
+                            this.txtObservacionesProyecto.Text.Trim(),
+                            Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
                     else
                     {
@@ -158,12 +162,7 @@ namespace capapresentacion
    
                     botonesVisible(false);
                     botones();
-                    //this.limpiar();
-                    //FrmPrincipal.mostrarproyectos();
                    
-                    //TODO es necesario mostrar los proyectos desde detalleProyecto?
-
-             
                 }
             }
             catch (Exception ex)
@@ -184,7 +183,6 @@ namespace capapresentacion
                 //txtDescripcionProyecto.Enabled = true;
                 //this.txtDescripcionProyecto.Visible = true;
                 botonesVisible(true);
-
             }
             else
             {
@@ -270,7 +268,7 @@ namespace capapresentacion
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
 
-
+            
             DInformacionProyecto.sumaIndex();
 
             llamaVisualizaDatos();
@@ -279,16 +277,12 @@ namespace capapresentacion
 
         public void llamaVisualizaDatos()
         {
-            
-
-            
             visualizaDatos(
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["descripcion"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
-                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));
-            
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));            
         }
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
@@ -333,6 +327,7 @@ namespace capapresentacion
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
+           
             DInformacionProyecto.restaIndex();
             visualizaDatos(
                     Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),

@@ -123,7 +123,7 @@ namespace capadatos
                 ParIdTarea.ParameterName = "@id_tarea";
                 ParIdTarea.SqlDbType = SqlDbType.NText;
                 ParIdTarea.Size = 1024;
-                ParIdTarea.Value = tiempo.Id_tarea;
+                ParIdTarea.Value = tiempo.Tarea;
                 //Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
                 SqlCmd.Parameters.Add(ParIdTarea);
 
@@ -190,7 +190,7 @@ namespace capadatos
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@id_tarea";
                 ParIdTarea.SqlDbType = SqlDbType.Int;
-                ParIdTarea.Value = tiempo.Id_tarea;
+                ParIdTarea.Value = tiempo.Tarea;
                 //TODO Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
                 SqlCmd.Parameters.Add(ParIdTarea);
 

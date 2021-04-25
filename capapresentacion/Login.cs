@@ -17,9 +17,10 @@ namespace capapresentacion
 {
     public partial class Login : Form
     {
-        
-        SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-        
+
+        //SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        //TODO ENCAPSULACIÓN EN CAPA DE DATOS Y NO DDUPLICAR LA CONEXIÓN
         public Login()
         {
             InitializeComponent();
@@ -44,10 +45,8 @@ namespace capapresentacion
                 using (SqlDataReader oReader = query.ExecuteReader())
                 {
                     while (oReader.Read())
-                    {
-                        
-                        existe = oReader["existe"].ToString();
-                        
+                    {                       
+                        existe = oReader["existe"].ToString();                        
                     }
                 }
                 if (existe.Equals("1"))
@@ -67,7 +66,6 @@ namespace capapresentacion
 
                     principal.Show();
                     
-
                 }
 
 
@@ -79,8 +77,6 @@ namespace capapresentacion
             }
             
         }
-
-
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
